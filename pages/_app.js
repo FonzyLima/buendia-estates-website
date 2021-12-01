@@ -2,7 +2,9 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'boxicons/css/boxicons.css';
 import * as React from "react";
+
 import Navbar from '../components/Navbar'
+import Contact from '../components/Contact';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -19,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     </head>
     <Navbar/>
     <Component {...pageProps} />
+    <Contact/>
     </>
     
 
