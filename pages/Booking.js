@@ -1,7 +1,7 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
 
-import toast from "../comps/Toast";
+// import toast from "../comps/Toast";
 
 const Booking = () => {
   // Calls the toast component to be displayed
