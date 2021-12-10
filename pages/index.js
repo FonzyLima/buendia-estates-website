@@ -9,7 +9,7 @@ export default function Home() {
         <div className={styles["hero-image"]}>
           <div className={styles["hero-text"]}>
             <h1>
-              #LetLeniLead <br /> #NoToBBM amet, consectetur adipiscing elit
+              #LetLeniLead2022 <br /> #NoToBBM amet, consectetur adipiscing elit
             </h1>
             <p>
               In oculis quidem se esse admonere interesse enim maxime placeat,
