@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,900,400,500&display=swap');
+
+
+.hero-image {
+    height: 660px;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/bookingheader.jpeg") top left;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    color: white;
+
+    width: 769px;
+    max-width: 70%;
+    height: fit-content;
+
+    position: relative;
+    left: 100px;
+    padding-top: 150px;
+}
+
+.hero-text p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: white;
+
+    width: 656px;
+    max-width: 50%;
+    height: 109px;
+
+    position: relative;
+    left: 100px;
+    
+    padding-top: 10px;
+}
+
+.search {
+    padding:2%;
+    background-color: white;
+    width: 50%;
+    max-width: 1210px;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 480px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+}
+
+.booking-content{
+    padding:12px 10px 10px 10px;
+}
+
+.search h3{
+    font-weight:bold;
+    text-align: center;
+    font-size: 32px;
+    color: #142B3F;
+}
+
+.search:hover {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Phone Responsiveness */
+@media screen and (max-width: 600px)
+{
+    .newbox{
+        height:80vh;
+       background-color: #142B3F;
+    } 
+    .mb-4{
+        margin-bottom: 2px !important;
+    }
+    .booking-content{
+        font-size: small;
+    }
+
+    .booking-content input{
+        font-size: small;
+    }
+
+    .form-outline .mb-4{
+        margin-bottom: 2px;
+    }
+
+    
+    .hero-text h1 {
+        left: 50px;
+        font-size:65px;
+    }
+
+    .hero-text p {
+        left: 50px;
+        font-size:15px;
+    }
+}
+
+@media screen and (max-width: 519px)
+{        
+    .hero-text h1 {
+        padding-top: 50px;
+        left: 25px;
+        font-size:55px;
+    }
+
+    .hero-text p {
+        left: 25px;
+    }
+
+    .search {
+        height: fit-content;
+        width: 80%;
+    }
+
+    .search h3{
+        text-align: center;
+        font-size:large;
+    }
+
+    .search{
+        padding:10px;
+    }
+    
+}
+
+
+.body-fluid {
+    height: 50vh;
+    background-color:black;
+}
+
+.form-outline{
+    margin-top: 8px;
+}
+
+.newbox{
+    height:96vh;
+   background-color: #142B3F;
+}
+
+.btn-primary{
+    background:#142B3F;
+    width:100%;
+    padding: 8px 1%;
+    border-radius:10px;
+    color: white;
+}
+
+.btn-primary:hover{
+    background-color:#375f81;
+
+
+}
