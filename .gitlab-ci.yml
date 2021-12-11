@@ -1,5 +1,5 @@
 build project:
   image: node:16
   script: 
-    - yarn install
+    - npm install
     - next build
