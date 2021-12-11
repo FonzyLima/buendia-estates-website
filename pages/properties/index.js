@@ -1,5 +1,5 @@
-import PropertiesCard from '../../comps/PropertiesCard';
-import styles from '../../styles/properties.module.css'
+import PropertiesCard from '../../components/PropertiesCard';
+import styles from '../../styles/properties.module.css';
 import {createClient } from "contentful";
 
 

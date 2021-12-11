@@ -1,9 +1,8 @@
-import React from 'react'
-import Carousel from 'react-bootstrap/Carousel'
-import '../../styles/indiv.module.css'
+import React from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import styles from '../../styles/indiv.module.css';
 import { createClient } from "contentful";
-import styles from '../../styles/indiv.module.css'
-import PropertiesCard from '../../comps/PropertiesCard';
+import PropertiesCard from '../../components/PropertiesCard';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE,
