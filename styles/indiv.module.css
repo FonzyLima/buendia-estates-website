@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,900,400,500&display=swap');
+
+.property-content{
+    height:fit-content;
+    background-color: #FAFAFA;
+}
+
+.property-body{
+    padding-top: 50px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.property-body h1{
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight:500;
+    color: #142B3F;
+}
+
+.location{
+    font-size: 18px;
+}
+
+.carousel-inner{
+    height:400px;
+    width: 100%;
+
+}
+.imageCarousel{
+    width: 100%;
+    margin-bottom:40px;
+    height:400px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+    width: 100%;
+    
+}
+
+p#price {
+   font-weight: 500;
+   font-size: 28px;
+   margin-bottom: 8px;
+   color:#142B3F;
+
+}
+
+p.house-status {
+    font-weight: 200;
+    font-size: 24px;
+    color:rgba(0, 0, 0, 0.507);
+}
+
+.box{
+    position: -webkit-sticky; 
+        position: sticky;
+    height:90%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding:30px;
+}
+
+.house-desc{
+    height:fit-content;
+    width:auto;
+    border-top: 1px solid #979797;
+    border-bottom:1px solid #979797;
+    padding:25px 0%;
+}
+
+.featpic{
+    width:100%; 
+    border-top-right-radius: 10px; 
+    border-top-left-radius: 10px;
+}
+.icons{
+    mix-blend-mode: normal;
+}
+
+
+.desc-num{
+    font-weight:500;
+}
+
+.image-carousel{
+    max-height: 600px;  /* change this to whatever you want */
+    width: 100%;
+    object-fit:cover;
+}
+
+
+@media screen and (max-width: 600px)
+{   
+    .icons{
+        height:30px;
+        width:30px;
+       display:none;
+
+    }
+
+
+    span.spec-desc {
+        margin-left: 0px!important;
+        font-size:17px!important;
+        font-weight:400;
+        color: #142B3F;
+    }
+
+    .img-carousel{
+        right:8%;
+        width:116%;
+    }
+    p#price {
+        font-weight: 500;
+
+        font-size: 25px;
+        margin-bottom: 8px;
+     }
+
+    .property-body{
+        padding-top: 30px!important;
+        padding-left: 8%;
+        padding-right: 8%;
+       
+    }
+
+    .house-specifications{
+        flex-direction: column!important;
+    }
+
+    .full-width{
+        width: 100%;
+    }
+   
+}
+
+.house-specifications{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: -webkit-calc(-1 * var(--bs-gutter-y));
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: -webkit-calc(-0.5 * var(--bs-gutter-x));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: -webkit-calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+
+span.spec-desc {
+    margin-left: 12px;
+    font-size:20px;
+    color: #142B3F;
+}
+
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#descBooking{
+    text-align: center;
+    font-size: 16px;
+}
+
+span.gray-desc{
+    color: gray !important;
+    font-weight: 400;
+    font-size:22px;
+}
+
+
+.btnBookViewing {
+    margin:auto;
+    display:block;
+    background-color: #254F72;
+    color: #FAFAFA;
+    border: 0;
+    font-size: 20px;
+    padding: 8px 12%;
+    border-radius: 25px;
+    width: 100%;
+  }
+
+  h4#interestedTitle{
+    font-weight:500;
+    color:#254F72; 
+    text-align:center;
+  }
+
+  .suggestedProperties{
+      padding-top:5%;
+      padding-bottom: 8%;
+  }
+  .suggestedProperties > h4{
+    font-weight:500px;
+    color: #254F72;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+
+  }
+  
+  .house-details > * h4{
+      font-weight:500px;
+      color: #254F72;
+  }
+
+  .house-details > * ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
