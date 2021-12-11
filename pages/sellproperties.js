@@ -17,7 +17,7 @@ const sellproperties = () => {
               <form>
                 
                 <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                    <label className="form-label" for="property-type">Type</label>
+                    <label className="form-label" htmlFor="property-type">Type</label>
                     <select id="type" name="type" className="form-control inputbox">
                       <option value="preselling">Pre-selling</option>
                       <option value="old">Old</option>
@@ -27,7 +27,7 @@ const sellproperties = () => {
 
                 
                  <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                    <label className="form-label" for="property-type">Property Type</label>
+                    <label className="form-label" htmlFor="property-type">Property Type</label>
                     <select id="property-type" name="property-type" className="form-control">
                       <option value="condo">Condominium</option>
                       <option value="commercial">Commercial</option>
@@ -38,7 +38,7 @@ const sellproperties = () => {
 
              
                 <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                    <label className="form-label" for="selling-price">Selling Price</label>
+                    <label className="form-label" htmlFor="selling-price">Selling Price</label>
                     <input type="text" id="selling-price" className="form-control" />
                 </div>
 
@@ -141,12 +141,12 @@ const sellproperties = () => {
 
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label className="form-label" for="brokers-fee">Broker's Fee</label>
+                <label className="form-label" htmlFor="brokers-fee">Brokers Fee</label>
                 <input type="text" id="brokers-fee" className="form-control" />
               </div>
 
            
-              <label>Owner's Info</label>
+              <label>Owners Info</label>
             
               <div className="row mb-2">
                   <div className="col">
@@ -176,12 +176,12 @@ const sellproperties = () => {
 
     
                <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label className="form-label" for="add-notes">Additional Notes</label>
+                <label className="form-label" htmlFor="add-notes">Additional Notes</label>
                 <textarea id={styles.areaText2}id="add-notes" className="form-control"></textarea>
               </div>
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label for="pictures" className="form-label">Upload Pictures</label>
+                <label htmlFor="pictures" className="form-label">Upload Pictures</label>
                 <input className="form-control" type="file" id="pictures" multiple />
               </div>
 
