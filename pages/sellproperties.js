@@ -104,7 +104,7 @@ const sellproperties = () => {
                 </div>
 
                 <div className={`${styles['form-outline']} mb-2`}>
-                  <textarea id={styles.areaText1} id="other-features" className="form-control" placeholder="Other Features"></textarea>
+                  <textarea id={styles.areaText1} className="form-control" placeholder="Other Features"></textarea>
                 </div>
 
                 <div className="row mb-2">
@@ -177,7 +177,7 @@ const sellproperties = () => {
     
                <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
                 <label className="form-label" htmlFor="add-notes">Additional Notes</label>
-                <textarea id={styles.areaText2}id="add-notes" className="form-control"></textarea>
+                <textarea id={styles.areaText2} className="form-control"></textarea>
               </div>
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
