@@ -3,6 +3,5 @@ build project:
   script: 
     - npm install
     - npm install -D @playwright/test
-    - npm run dev
     - npm run test
     - npm run build
