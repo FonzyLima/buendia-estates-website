@@ -18,5 +18,5 @@ build project:
     - npm install
     - npm install -D @playwright/test
     - npx playwright install
-    -npx playwright install-deps
+    - npx playwright install-deps
     - npm run test
