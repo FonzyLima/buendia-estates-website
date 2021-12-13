@@ -2,4 +2,5 @@ build project:
   image: node:16
   script: 
     - npm install
-    - npm test
+    - npm install -D @playwright/test
+    - npm run test
