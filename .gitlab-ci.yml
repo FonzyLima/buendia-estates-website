@@ -8,6 +8,7 @@ test project:
   script:
     - npm install
     - npm install -D @playwright/test
+    - npx playwright install
     - npm run test
 build project:
   stage: build
@@ -15,4 +16,5 @@ build project:
   script: 
     - npm install
     - npm install -D @playwright/test
+    - npx playwright install
     - npm run test
