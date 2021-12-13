@@ -10,7 +10,6 @@ build project:
     - npm install -D @playwright/test
     - npx playwright install
     - npx playwright install-deps
-    - npm run dev
 
 test project:
   stage: test
