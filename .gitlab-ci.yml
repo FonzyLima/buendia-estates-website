@@ -1,7 +1,17 @@
-build project:
+stages:
+  - test
+  - build
+
+test project:
+  stage: test
   image: node:16
-  script: 
+  script:
     - npm install
     - npm install -D @playwright/test
     - npm run test
+build project:
+  stage: build
+  image: node:16
+  script: 
+    - npm install
     - npm run build
