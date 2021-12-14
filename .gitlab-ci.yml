@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - deploy
   
 build project:
   stage: build
@@ -8,8 +9,8 @@ build project:
   script: 
     - npm install
     - npm install -D @playwright/test
+    # - npm install contentful
     - npx playwright install
-    - npx playwright install-deps
 
 test project:
   stage: test
@@ -18,7 +19,13 @@ test project:
     - npm install
     - npm install -D @playwright/test
     - npx playwright install
-    - npx playwright install-deps
+
+deploy project:
+  stage: deploy
+  image: node:16
+  script:
+    - npm install
+    - npm install -D @playwright/test
+    # - npm install contentful
+    - npx playwright install
     - npm run build
-    - npm run start & npx wait-on http://localhost:3000
-    - npm run test
