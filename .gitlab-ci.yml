@@ -17,6 +17,5 @@ test project:
   script:
     - npm install
     - npm install -D @playwright/test
-    - npx playwright install
-    - npx playwright install-deps
+    - npm run dev & npx wait-on http://localhost:3000
     - npm run test
