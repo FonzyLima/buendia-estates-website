@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { createClient } from "contentful";
 import FProperties from "../components/FProperties";
 import Testimonies from "../components/Testimonies";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export async function getStaticProps() {
   const client = createClient({
