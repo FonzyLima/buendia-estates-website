@@ -8,7 +8,7 @@ build project:
   script: 
     - npm install
     - npm install -D @playwright/test
-    # - npm install contentful
+    - npm install contentful
     - npx playwright install
 
 test project:
@@ -17,6 +17,6 @@ test project:
   script:
     - npm install
     - npm install -D @playwright/test
-    # - npm install contentful
+    - npm install contentful
     - npx playwright install
     # run test script
