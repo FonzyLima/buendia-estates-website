@@ -52,11 +52,12 @@ nav .nav-link, nav .navbar-brand {
 }
 
 .property-text-container {
+
     padding-right: 26px;
     padding-left: 26px;
     padding-top: 20px;
     width: 100%;
-    height: fit-content;
+    height: 150px;
 }
 
 .property-text-container h4 {
