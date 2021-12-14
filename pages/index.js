@@ -1,8 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { createClient } from "contentful";
+import FProperties from "../components/FProperties";
+import Testimonies from "../components/Testimonies";
 
-export default function Home() {
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE,
+    accessToken: process.env.CONTENTFUL_KEY,
+  });
+
+  const fres = await client.getEntries({ content_type: "properties" });
+  const tres = await client.getEntries({ content_type: "testimonies" });
+
+  return {
+    props: {
+      properties: fres.items,
+      testimonies: tres.items,
+    },
+    revalidate: 1,
+  };
+}
+
+export default function Home(props) {
   return (
     <div>
       <div className={styles.hero}>
@@ -42,12 +63,12 @@ export default function Home() {
         <div className={styles["featured-title"]}>Featured Properties</div>
         <div className={styles["featured-box"]}>
           <div className="row row-cols-1 row-cols-md-3 g-4">
-            {/* {props.properties.map(
+            {props.properties.map(
               (propers) =>
                 propers.fields.isFeatured && (
                   <FProperties key={propers.sys.id} propers={propers} />
                 )
-            )} */}
+            )}
             
           </div>
         </div>
@@ -75,11 +96,11 @@ export default function Home() {
       <div className={styles["client-test"]}>
         <div className={styles["client-title"]}>What our clients think</div>
         <div className={styles["client-box"]}>
-          {/* <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="row row-cols-1 row-cols-md-3 g-4">
             {props.testimonies.map((tests) => (
               <Testimonies key={tests.sys.id} tests={tests} />
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
