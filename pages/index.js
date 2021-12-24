@@ -31,7 +31,7 @@ export default function Home(props) {
         <div className={styles["hero-image"]}>
           <div className={styles["hero-text"]}>
             <h1>
-              #LetLeniLead2022 <br /> #NoToBBM amet, consectetur adipiscing elit
+              Buendia Estates 2022 <br /> Lorem Ipsum amet, consectetur adipiscing elit
             </h1>
             <p>
               In oculis quidem se esse admonere interesse enim maxime placeat,
