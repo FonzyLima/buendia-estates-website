@@ -48,7 +48,7 @@ export async function getStaticProps({ params }) {
 
 }
 export default function PropertyDetails(props) {
-
+  var suggestedCount=0;
   return (
     <div>
       <div className={styles['property-content']}>
@@ -225,10 +225,15 @@ export default function PropertyDetails(props) {
             <div className="properties-box">
               <div className="row row-cols-1 row-cols-md-3 g-4">
                 
-                {props.suggested.map(sugge => (
-                  sugge.fields.featuredTitle != props.propers.fields.featuredTitle &&
-                  <PropertiesCard key={sugge.sys.id} propers={sugge}/>
-                ))}
+                {props.suggested.sort(() => Math.random()-0.5).map(sugge => {
+                  
+                  if(sugge.fields.featuredTitle != props.propers.fields.featuredTitle && suggestedCount<3){
+                    suggestedCount++;
+                    return(
+                      <PropertiesCard key={sugge.sys.id} propers={sugge}/>
+                    )
+                  }
+                  })}
                 
               </div>
             </div>
