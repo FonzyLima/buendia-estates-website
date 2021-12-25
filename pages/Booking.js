@@ -1,6 +1,6 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
-
+import emailjs from "emailjs-com"
 // import toast from "../comps/Toast";
 
 const Booking = () => {
@@ -13,19 +13,13 @@ const Booking = () => {
 //     toast.dismiss();
 //   }, []);
 
+
   // Submit function to send email and clear form
   async function handleOnSubmit(e) {
     e.preventDefault();
-    const formData = {};
-    // Array.from(e.currentTarget.elements).forEach((field) => {
-    //   if (!field.name) return;
-    //   formData[field.name] = field.value;
-    // });
-    // fetch("/api/bookviewingform", {
-    //   method: "post",
-    //   body: JSON.stringify(formData),
-    // });
-    // console.log(formData);
+    
+    
+
     // clear form inputs
     setLocation("");
     setPropertyType("");
@@ -38,6 +32,7 @@ const Booking = () => {
     setOccupation("");
     setSched("");
     setNotes("");
+    // e.target.reset();
     // notify("success", "Booking Placed");
   }
 
