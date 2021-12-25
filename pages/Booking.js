@@ -18,7 +18,12 @@ const Booking = () => {
   async function handleOnSubmit(e) {
     e.preventDefault();
     
-    
+    emailjs.sendForm("service_ykiu25s","booking_form",e.target,"user_BRUVe3i2hOLzfQYycpRJF")
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
 
     // clear form inputs
     setLocation("");
