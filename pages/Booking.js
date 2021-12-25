@@ -1,29 +1,37 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
 // import toast from "../comps/Toast";
 
 const Booking = () => {
   // Calls the toast component to be displayed
-//   const notify = React.useCallback((type, message) => {
-//     toast({ type, message });
-//   }, []);
+  //   const notify = React.useCallback((type, message) => {
+  //     toast({ type, message });
+  //   }, []);
 
-//   const dismiss = React.useCallback(() => {
-//     toast.dismiss();
-//   }, []);
-
+  //   const dismiss = React.useCallback(() => {
+  //     toast.dismiss();
+  //   }, []);
 
   // Submit function to send email and clear form
   async function handleOnSubmit(e) {
     e.preventDefault();
-    
-    emailjs.sendForm("service_ykiu25s","booking_form",e.target,"user_BRUVe3i2hOLzfQYycpRJF")
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
+
+    emailjs
+      .sendForm(
+        "service_ykiu25s",
+        "booking_form",
+        e.target,
+        "user_BRUVe3i2hOLzfQYycpRJF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
 
     // clear form inputs
     setLocation("");
