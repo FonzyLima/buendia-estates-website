@@ -1,44 +1,53 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
-
-// import toast from "../comps/Toast";
+import emailjs from "emailjs-com";
+import Toast from "../components/Toast";
 
 const Booking = () => {
-  // Calls the toast component to be displayed
-//   const notify = React.useCallback((type, message) => {
-//     toast({ type, message });
-//   }, []);
+  //Calls the toast component to be displayed
+  const notify = React.useCallback((type, message) => {
+    Toast({ type, message });
+  }, []);
 
-//   const dismiss = React.useCallback(() => {
-//     toast.dismiss();
-//   }, []);
+  const dismiss = React.useCallback(() => {
+    Toast.dismiss();
+  }, []);
 
   // Submit function to send email and clear form
   async function handleOnSubmit(e) {
     e.preventDefault();
-    const formData = {};
-    // Array.from(e.currentTarget.elements).forEach((field) => {
-    //   if (!field.name) return;
-    //   formData[field.name] = field.value;
-    // });
-    // fetch("/api/bookviewingform", {
-    //   method: "post",
-    //   body: JSON.stringify(formData),
-    // });
-    // console.log(formData);
-    // clear form inputs
-    setLocation("");
-    setPropertyType("");
-    setBudget("");
-    setName("");
-    setFb("");
-    setEmail("");
-    setAge(0);
-    setGender("");
-    setOccupation("");
-    setSched("");
-    setNotes("");
-    // notify("success", "Booking Placed");
+
+    emailjs
+      .sendForm(
+        "service_ykiu25s",
+        "booking_form",
+        e.target,
+        "user_BRUVe3i2hOLzfQYycpRJF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          notify("success", "Booking Placed");
+          // clear form inputs
+          setLocation("");
+          setPropertyType("");
+          setBudget("");
+          setName("");
+          setFb("");
+          setEmail("");
+          setAge(0);
+          setGender("");
+          setOccupation("");
+          setSched("");
+          setNotes("");
+        },
+        (error) => {
+          console.log(error.text);
+          notify("error", "Booking Failed Please Try Again");
+        }
+      );
+
+  
   }
 
   // Initial values of form inputs
