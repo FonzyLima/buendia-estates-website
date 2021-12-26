@@ -1,17 +1,17 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-// import toast from "../comps/Toast";
+import Toast from "../comps/Toast";
 
 const Booking = () => {
-  // Calls the toast component to be displayed
-  //   const notify = React.useCallback((type, message) => {
-  //     toast({ type, message });
-  //   }, []);
+  //Calls the toast component to be displayed
+  const notify = React.useCallback((type, message) => {
+    Toast({ type, message });
+  }, []);
 
-  //   const dismiss = React.useCallback(() => {
-  //     toast.dismiss();
-  //   }, []);
+  const dismiss = React.useCallback(() => {
+    Toast.dismiss();
+  }, []);
 
   // Submit function to send email and clear form
   async function handleOnSubmit(e) {
@@ -27,26 +27,27 @@ const Booking = () => {
       .then(
         (result) => {
           console.log(result.text);
+          notify("success", "Booking Placed");
+          // clear form inputs
+          setLocation("");
+          setPropertyType("");
+          setBudget("");
+          setName("");
+          setFb("");
+          setEmail("");
+          setAge(0);
+          setGender("");
+          setOccupation("");
+          setSched("");
+          setNotes("");
         },
         (error) => {
           console.log(error.text);
+          notify("error", "Booking Failed Please Try Again");
         }
       );
 
-    // clear form inputs
-    setLocation("");
-    setPropertyType("");
-    setBudget("");
-    setName("");
-    setFb("");
-    setEmail("");
-    setAge(0);
-    setGender("");
-    setOccupation("");
-    setSched("");
-    setNotes("");
-    // e.target.reset();
-    // notify("success", "Booking Placed");
+  
   }
 
   // Initial values of form inputs

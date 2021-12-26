@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+
+import toast from "../components/Toast";
 const Contact = () => {
+  const notify = React.useCallback((type, message) => {
+    toast({ type, message });
+  }, []);
+
+  const dismiss = React.useCallback(() => {
+    toast.dismiss();
+  }, []);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -18,16 +27,18 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          notify("success", "Message Successfully Sent!");
+          // clear form inputs
+          setFname("");
+          setLname("");
+          setEmail("");
+          setMessage("");
         },
         (error) => {
           console.log(error.text);
+          notify("error", "Message Failed to Send. Please Try Again");
         }
       );
-    // clear form inputs
-    setFname("");
-    setLname("");
-    setEmail("");
-    setMessage("");
   }
   return (
     <div>
