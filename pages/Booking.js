@@ -1,7 +1,7 @@
 import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import Toast from "../comps/Toast";
+import Toast from "../components/Toast";
 
 const Booking = () => {
   //Calls the toast component to be displayed
