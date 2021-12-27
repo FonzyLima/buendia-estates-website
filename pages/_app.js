@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
         pauseOnHover
       />
       <MessengerCustomerChat
-        pageId="283415475102221"
+        pageId="100068167342254"
         appId="1524224601298273"
       />
       ,
