@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
         pageId="100068167342254"
         appId="1524224601298273"
       />
-      ,
+      
       <Contact />
     </>
   );
