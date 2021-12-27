@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
       />
       <MessengerCustomerChat
         pageId="101557734720273"
-        appId="1524224601298273"
+        appId= {process.env.CHATBOT_APP_ID}
       />
       
       <Contact />
