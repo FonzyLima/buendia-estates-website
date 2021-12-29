@@ -1,5 +1,39 @@
 import Link from 'next/link'
+import { useRouter, NextRouter } from 'next/router'
+import {useState, useEffect} from 'react'
+
 const Navbar = () => {
+
+  const route= useRouter()
+  const [ activeLink, setActiveLink ] = useState('')
+  const links = {
+    home: "/",
+    properties: "/properties",
+    sell: "/sellproperties",
+    booking: "/Booking"
+  }
+
+  const getLink = () => {
+    const pathname = route.pathname
+
+    if(pathname === "/"){
+      setActiveLink(links.home)
+    }
+    else if(pathname === "/properties"){
+      setActiveLink(links.properties)
+    }
+    else if(pathname === "/sellproperties"){
+      setActiveLink(links.sell)
+    }
+    else if(pathname ==="/Booking"){
+      setActiveLink(links.booking)
+    }
+  }
+
+  useEffect(() => {
+    getLink();
+  });
+
     return ( 
         <nav className="navbar navbar-expand-lg sticky-top">
 
@@ -11,20 +45,20 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <Link href="/"><a className="nav-link active" aria-current="page" href="#">Home</a></Link>
+                    <Link href="/"><a className={`nav-link ${activeLink === links.home ? 'active': ''}`} aria-current="page" href="#">Home</a></Link>
                   </li>
                   <li className="nav-item">
-                    <Link href="/properties"><a className="nav-link">Properties</a></Link>
+                    <Link href="/properties"><a className={`nav-link ${activeLink === links.properties ? 'active': ''}`}>Properties</a></Link>
                   </li>
                   <li className="nav-item">
-                    <Link href="/sellproperties"><a className="nav-link">Sell a Property</a></Link>
+                    <Link href="/sellproperties"><a className={`nav-link ${activeLink === links.sell ? 'active': ''}`}>Sell a Property</a></Link>
                   </li>
                   <li className="nav-item">
                     <Link href="#contact-us"><a className="nav-link" href="#contact-us">Contact Us</a></Link>
                   </li>
                 </ul>
                 <li className="nav-item d-flex">
-                    <Link href="/Booking"><a className="nav-link">Book A Viewing</a></Link>
+                    <Link href="/Booking"><a className={`nav-link ${activeLink === links.booking ? 'active': ''}`}>Book A Viewing</a></Link>
                 </li>
               </div>
             </div>
