@@ -5,22 +5,26 @@ import {useState, useEffect} from 'react'
 const Navbar = () => {
 
   const route= useRouter()
-  const [ activeLink, setActiveLink ] = useState('')
+  const [activeLink, setActiveLink ] = useState('')
   const links = {
     home: "/",
     properties: "/properties",
     sell: "/sellproperties",
-    booking: "/Booking"
+    booking: "/Booking",
+    slug: "/properties/[slug]"
   }
 
   const getLink = () => {
     const pathname = route.pathname
-
+    console.log(pathname)
     if(pathname === "/"){
       setActiveLink(links.home)
     }
     else if(pathname === "/properties"){
       setActiveLink(links.properties)
+    }
+    else if(pathname === "/properties/[slug]"){
+      setActiveLink(links.slug)
     }
     else if(pathname === "/sellproperties"){
       setActiveLink(links.sell)
@@ -38,7 +42,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg sticky-top">
 
             <div className="container-fluid">
-              <a className="navbar-brand">Lourdene Buendia</a>
+              <Link href="/"><a className="navbar-brand">Lourdene Buendia</a></Link>
               <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -48,7 +52,7 @@ const Navbar = () => {
                     <Link href="/"><a className={`nav-link ${activeLink === links.home ? 'active': ''}`} aria-current="page" href="#">Home</a></Link>
                   </li>
                   <li className="nav-item">
-                    <Link href="/properties"><a className={`nav-link ${activeLink === links.properties ? 'active': ''}`}>Properties</a></Link>
+                    <Link href="/properties"><a className={`nav-link ${activeLink === links.properties || activeLink === links.slug ? 'active': ''}`}>Properties</a></Link>
                   </li>
                   <li className="nav-item">
                     <Link href="/sellproperties"><a className={`nav-link ${activeLink === links.sell ? 'active': ''}`}>Sell a Property</a></Link>
