@@ -35,11 +35,22 @@ const properties = (props) => {
               <div className={styles.search}>
                 <form action="">
                   <select id="location" name="location">
-                    <option value="location1">Location</option>
+                  <option value="location" selected disabled>Location</option>
+                  {props.properties
+                    .sort((a,b) => a.fields.featuredLocation > b.fields.featuredLocation ? 1:-1)
+                    .map(propers => (
+                        <option value={propers.fields.featuredLocation}>{propers.fields.featuredLocation}</option>
+                    ))}
+                    
                   </select>
                   <div className={styles['search-divider1']}></div>
                   <select id="propertytype" name="propertytype">
-                    <option value="propertytype1">Property Type</option>
+                    <option value="propertytype1" selected disabled>Property Type</option>
+                    {props.properties
+                    .sort((a,b) => a.fields.propertyType > b.fields.propertyType ? 1:-1)
+                    .map(propers => (
+                        <option value={propers.fields.propertyType}>{propers.fields.propertyType}</option>
+                    ))}
                   </select>
                   <div className={styles['search-divider2']}></div>
                   <select id="price" name="price">
