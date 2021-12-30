@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import Carousel from "react-bootstrap/Carousel";
 import styles from "../../styles/indiv.module.css";
 import { createClient } from "contentful";
@@ -45,6 +47,7 @@ export async function getStaticProps({ params }) {
 }
 export default function PropertyDetails(props) {
   var suggestedCount = 0;
+  const router = useRouter();
   return (
     <div>
       <div className={styles["property-content"]}>
@@ -278,7 +281,13 @@ export default function PropertyDetails(props) {
                   Our listings are in high demand, so don’t wait until your
                   chance is over.{" "}
                 </p>
-                <button className={styles.btnBookViewing}>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/Booking");
+                  }}
+                  className={styles.btnBookViewing}
+                >
                   Book A Viewing
                 </button>
               </div>
