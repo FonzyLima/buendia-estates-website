@@ -26,6 +26,9 @@ const Properties = (props) => {
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
 
+    const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
+    const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
+
     return (  
         <div>
             <div className={styles.hero}>
@@ -41,20 +44,20 @@ const Properties = (props) => {
                 <form action="">
                   <select id="location" name="location">
                   <option value="location" selected disabled>Location</option>
-                  {props.properties
-                    .sort((a,b) => a.fields.featuredLocation > b.fields.featuredLocation ? 1:-1)
+                  {fLocations
+                    .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
-                        <option key={propers.fields.featuredTitle} value={propers.fields.featuredLocation}>{propers.fields.featuredLocation}</option>
+                        <option key={propers} value={propers}>{propers}</option>
                     ))}
                     
                   </select>
                   <div className={styles['search-divider1']}></div>
                   <select id="propertytype" name="propertytype">
                     <option value="propertytype1" selected disabled>Property Type</option>
-                    {props.properties
-                    .sort((a,b) => a.fields.propertyType > b.fields.propertyType ? 1:-1)
+                    {fPropertyType
+                    .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
-                        <option key={propers.fields.featuredTitle} value={propers.fields.propertyType}>{propers.fields.propertyType}</option>
+                        <option key={propers} value={propers}>{propers}</option>
                     ))}
                   </select>
                   <div className={styles['search-divider2']}></div>
