@@ -21,7 +21,7 @@ export async function getStaticProps(){
     }
   }
   
-const properties = (props) => {
+const Properties = (props) => {
 
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
@@ -161,4 +161,4 @@ const properties = (props) => {
     );
 }
  
-export default properties;
+export default Properties;
