@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import PropertiesCard from '../../components/PropertiesCard';
 import styles from '../../styles/properties.module.css';
 import {createClient } from "contentful";
@@ -20,7 +21,14 @@ export async function getStaticProps(){
     }
   }
   
-const properties = (props) => {
+const Properties = (props) => {
+
+    const [sort, setSort] = useState("date-added");
+    const [hilo, setHiLo] = useState("highest");
+
+    const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
+    const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
+
     return (  
         <div>
             <div className={styles.hero}>
@@ -35,11 +43,22 @@ const properties = (props) => {
               <div className={styles.search}>
                 <form action="">
                   <select id="location" name="location">
-                    <option value="location1">Location</option>
+                  <option value="location" selected disabled>Location</option>
+                  {fLocations
+                    .sort((a,b) => a > b ? 1:-1)
+                    .map(propers => (
+                        <option key={propers} value={propers}>{propers}</option>
+                    ))}
+                    
                   </select>
                   <div className={styles['search-divider1']}></div>
                   <select id="propertytype" name="propertytype">
-                    <option value="propertytype1">Property Type</option>
+                    <option value="propertytype1" selected disabled>Property Type</option>
+                    {fPropertyType
+                    .sort((a,b) => a > b ? 1:-1)
+                    .map(propers => (
+                        <option key={propers} value={propers}>{propers}</option>
+                    ))}
                   </select>
                   <div className={styles['search-divider2']}></div>
                   <select id="price" name="price">
@@ -56,15 +75,15 @@ const properties = (props) => {
             <div className={styles['properties-container']}>
               <div className={styles.sort}>
                 <form action="">
-                  <select id="sort-by" name="sort-by">
+                  <select id="sort-by" name="sort-by" onChange={(event) => {setSort(event.target.value)}}>
                     <option value="price">Sort by Price</option>
                     <option value="availability">Sort by Availability</option>
-                    <option value="date-added">Sort by Date Added</option>
+                    <option value="date-added" selected>Sort by Date Added</option>
                     <option value="floor-area">Sort by Floor Area</option>
                     <option value="lot-area">Sort by Lot Area</option>
                   </select>
                   <div className={styles['sort-divider']}></div>
-                  <select id="low-high-first" name="low-high-first">
+                  <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
                     <option value="highest">Highest First</option>
                     <option value="lowest">Lowest First</option>
                   </select>
@@ -74,9 +93,68 @@ const properties = (props) => {
               <div className={styles['properties-box']}>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
 
-                    {props.properties.map(propers => (
-                        <PropertiesCard key={propers.sys.id} propers={propers}/>
-                    ))}
+                    {( (sort == "date-added" && hilo == "highest") &&
+                          (props.properties
+                            .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "date-added" && hilo == "lowest") &&
+                          (props.properties
+                            .reverse()
+                            .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "price" && hilo == "highest") &&
+                          (props.properties
+                          .sort((a,b) => b.fields.featuredPrice - a.fields.featuredPrice)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "price" && hilo == "lowest") &&
+                          (props.properties
+                          .sort((a,b) => a.fields.featuredPrice - b.fields.featuredPrice)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "floor-area" && hilo == "highest") &&
+                          (props.properties
+                          .sort((a,b) => b.fields.floorArea - a.fields.floorArea)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "floor-area" && hilo == "lowest") &&
+                          (props.properties
+                          .sort((a,b) => a.fields.floorArea - b.fields.floorArea)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "lot-area" && hilo == "highest") &&
+                          (props.properties
+                          .sort((a,b) => b.fields.lotArea - a.fields.lotArea)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "lot-area" && hilo == "lowest") &&
+                          (props.properties
+                          .sort((a,b) => a.fields.lotArea - b.fields.lotArea)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
                   
                 </div>
               </div>
@@ -86,4 +164,4 @@ const properties = (props) => {
     );
 }
  
-export default properties;
+export default Properties;
