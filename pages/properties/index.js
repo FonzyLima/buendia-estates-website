@@ -44,7 +44,7 @@ const Properties = (props) => {
                   {props.properties
                     .sort((a,b) => a.fields.featuredLocation > b.fields.featuredLocation ? 1:-1)
                     .map(propers => (
-                        <option value={propers.fields.featuredLocation}>{propers.fields.featuredLocation}</option>
+                        <option key={propers.sys.id} value={propers.fields.featuredLocation}>{propers.fields.featuredLocation}</option>
                     ))}
                     
                   </select>
@@ -54,7 +54,7 @@ const Properties = (props) => {
                     {props.properties
                     .sort((a,b) => a.fields.propertyType > b.fields.propertyType ? 1:-1)
                     .map(propers => (
-                        <option value={propers.fields.propertyType}>{propers.fields.propertyType}</option>
+                        <option key={propers.sys.id} value={propers.fields.propertyType}>{propers.fields.propertyType}</option>
                     ))}
                   </select>
                   <div className={styles['search-divider2']}></div>
