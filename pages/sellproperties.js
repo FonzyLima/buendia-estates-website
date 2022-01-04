@@ -39,7 +39,7 @@ const sellproperties = () => {
              
                 <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
                     <label className="form-label" htmlFor="selling-price">Selling Price</label>
-                    <input type="text" id="selling-price" className="form-control" />
+                    <input type="number" id="selling-price" className="form-control" />
                 </div>
 
       
