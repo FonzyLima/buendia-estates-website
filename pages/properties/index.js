@@ -61,7 +61,8 @@ const Properties = (props) => {
               <div className={styles.search}>
                 <form onSubmit={searchProp}>
                   <select id="location" name="location" onChange={(event) => {setLocation(event.target.value);}}>
-                  <option value="" selected>Location</option>
+                  <option value="" selected disabled>Location</option>
+                  <option value=""> </option>
                   {fLocations
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -71,7 +72,8 @@ const Properties = (props) => {
                   </select>
                   <div className={styles['search-divider1']}></div>
                   <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value);}}>
-                    <option value="" selected>Property Type</option>
+                    <option value="" selected disabled>Property Type</option>
+                    <option value=""> </option>
                     {fPropertyType
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -83,7 +85,7 @@ const Properties = (props) => {
                     <option value="price1">Price</option>
                   </select>
                   <div className={styles['search-divider3']}></div>
-                  <input onClick={() => {searchProp()}} value="Search"/>
+                  <input type="button" onClick={() => {searchProp()}} value="Search"/>
                 </form>
               </div>
             </div>
