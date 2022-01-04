@@ -226,6 +226,7 @@
     flex-wrap: wrap;
     justify-content: center;
   
+  
     /* max-width: 1040px; */
     width: 90%;
     max-width: 1210px;
@@ -235,6 +236,8 @@
   
   .client-test-card {
     background: #FFFFFF;
+
+    
   
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -243,16 +246,19 @@
   .client-test-text {
     padding-right: 50px;
     padding-left: 50px;
-    padding-top: 15%;
+    padding-top: 10%;
   
     font-weight: bold;
     font-size: 18px;
     width:100%;
-    height: fit-content;
+    height:250px;
+    text-overflow: ellipsis;
+    
+    
   }
   
   .client-info {
-    margin-top: 90px;
+    margin-top:50px;
     width: 100%;
     padding-right: 50px;
     padding-left: 50px;
