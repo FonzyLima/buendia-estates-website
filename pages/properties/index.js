@@ -25,9 +25,14 @@ const Properties = (props) => {
 
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
+    const [propType, setPropType] = useState("");
 
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
+
+    function searchProp(){
+      props = [...new Set(props.properties.filter((a) => a.fields.propertyType == propType).map(p => p))]
+    }
 
     return (  
         <div>
@@ -41,7 +46,7 @@ const Properties = (props) => {
 
        
               <div className={styles.search}>
-                <form action="">
+                <form onSubmit={searchProp}>
                   <select id="location" name="location">
                   <option value="location" selected disabled>Location</option>
                   {fLocations
@@ -52,7 +57,7 @@ const Properties = (props) => {
                     
                   </select>
                   <div className={styles['search-divider1']}></div>
-                  <select id="propertytype" name="propertytype">
+                  <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value)}}>
                     <option value="propertytype1" selected disabled>Property Type</option>
                     {fPropertyType
                     .sort((a,b) => a > b ? 1:-1)
@@ -65,7 +70,7 @@ const Properties = (props) => {
                     <option value="price1">Price</option>
                   </select>
                   <div className={styles['search-divider3']}></div>
-                  <input type="submit" value="Search" />
+                  <input type="submit" value="Search"/>
                 </form>
               </div>
             </div>
