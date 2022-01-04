@@ -88,10 +88,22 @@ const Properties = (props) => {
                     <option value="lot-area">Sort by Lot Area</option>
                   </select>
                   <div className={styles['sort-divider']}></div>
-                  <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
-                    <option value="highest">Highest First</option>
-                    <option value="lowest">Lowest First</option>
-                  </select>
+                    { (sort == "date-added") ?
+                      (
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <option value="highest" selected>Latest First</option>
+                        <option value="lowest">Oldest First</option>
+                        </select>
+                      )
+                      :
+                      (
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <option value="highest" selected>Highest First</option>
+                        <option value="lowest">Lowest First</option>
+                        </select>
+                      )
+                    }
+
                 </form>
               </div>
               
@@ -100,6 +112,7 @@ const Properties = (props) => {
 
                     {( (sort == "date-added" && hilo == "highest") &&
                           (props.properties
+                            .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -107,7 +120,7 @@ const Properties = (props) => {
 
                     {( (sort == "date-added" && hilo == "lowest") &&
                           (props.properties
-                            .reverse()
+                            .sort((a,b) => a.sys.createdAt > b.sys.createdAt ? 1:-1)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
