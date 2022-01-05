@@ -79,7 +79,7 @@ export default function PropertyDetails(props) {
                       undefined,
                       { maximumFractionDigits: 2 }
                     )}
-                    <span className={styles["gray-desc"]}> Available </span>{" "}
+                    <span className={styles["avail-desc"]}> Available </span>{" "}
                     <span className={styles["gray-desc"]}>
                       Property Type: {props.propers.fields.propertyType}
                     </span>
