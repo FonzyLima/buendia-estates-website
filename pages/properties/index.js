@@ -25,9 +25,27 @@ const Properties = (props) => {
 
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
+    const [properties, setProps] = useState(props.properties);
+    const [propType, setPropType] = useState("");
+    const [location, setLocation] = useState("");
 
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
+
+    function searchProp(){
+      if(propType == "" && location == ""){
+        setProps(props.properties);
+      }
+      else if(propType != "" && location == ""){
+        setProps(props.properties.filter(a => a.fields.propertyType == propType).map(p => p));
+      }
+      else if(propType == "" && location != ""){
+        setProps(props.properties.filter(a => a.fields.featuredLocation == location).map(p => p));
+      }
+      else{
+        setProps(props.properties.filter(a => a.fields.propertyType == propType && a.fields.featuredLocation == location).map(p => p));
+      }
+    }
 
     return (  
         <div>
@@ -41,9 +59,10 @@ const Properties = (props) => {
 
        
               <div className={styles.search}>
-                <form action="">
-                  <select id="location" name="location">
-                  <option value="location" selected disabled>Location</option>
+                <form onSubmit={searchProp}>
+                  <select id="location" name="location" onChange={(event) => {setLocation(event.target.value);}}>
+                  <option value="" selected disabled>Location</option>
+                  <option value=""> </option>
                   {fLocations
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -52,8 +71,9 @@ const Properties = (props) => {
                     
                   </select>
                   <div className={styles['search-divider1']}></div>
-                  <select id="propertytype" name="propertytype">
-                    <option value="propertytype1" selected disabled>Property Type</option>
+                  <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value);}}>
+                    <option value="" selected disabled>Property Type</option>
+                    <option value=""> </option>
                     {fPropertyType
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -65,7 +85,7 @@ const Properties = (props) => {
                     <option value="price1">Price</option>
                   </select>
                   <div className={styles['search-divider3']}></div>
-                  <input type="submit" value="Search" />
+                  <input type="button" onClick={() => {searchProp()}} value="Search"/>
                 </form>
               </div>
             </div>
@@ -106,7 +126,7 @@ const Properties = (props) => {
                 <div className="row row-cols-1 row-cols-md-3 g-4">
 
                     {( (sort == "date-added" && hilo == "highest") &&
-                          (props.properties
+                          (properties
                             .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -114,7 +134,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "date-added" && hilo == "lowest") &&
-                          (props.properties
+                          (properties
                             .sort((a,b) => a.sys.createdAt > b.sys.createdAt ? 1:-1)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -122,7 +142,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "price" && hilo == "highest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => b.fields.featuredPrice - a.fields.featuredPrice)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -130,7 +150,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "price" && hilo == "lowest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => a.fields.featuredPrice - b.fields.featuredPrice)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -138,7 +158,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "floor-area" && hilo == "highest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => b.fields.floorArea - a.fields.floorArea)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -146,7 +166,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "floor-area" && hilo == "lowest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => a.fields.floorArea - b.fields.floorArea)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -154,7 +174,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "lot-area" && hilo == "highest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => b.fields.lotArea - a.fields.lotArea)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
@@ -162,7 +182,7 @@ const Properties = (props) => {
                     }
 
                     {( (sort == "lot-area" && hilo == "lowest") &&
-                          (props.properties
+                          (properties
                           .sort((a,b) => a.fields.lotArea - b.fields.lotArea)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
