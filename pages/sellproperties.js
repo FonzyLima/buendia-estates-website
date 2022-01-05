@@ -4,8 +4,8 @@ const sellproperties = () => {
         <div>
         <div className="hero">
             
-            <div className={styles['hero-image']}>
-              <div className={styles['hero-text']}>
+            <div className={styles["hero-image"]}>
+              <div className={styles["hero-text"]}>
                 <h1>Sell A Property</h1>
                 <p>In oculis quidem se esse admonere interesse enim maxime placeat, facere possimus, omnis. Et quidem faciunt, ut labore et accurate disserendum et harum quidem exercitus quid.</p>
               </div>
@@ -16,7 +16,7 @@ const sellproperties = () => {
               <h3 className="sellform-title">Sell A Property</h3>
               <form>
                 
-                <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
+                <div className={`mb-4 ${styles["form-outline"]}`}>
                     <label className="form-label" htmlFor="property-type">Type</label>
                     <select required id="type" name="type" className="form-control inputbox">
                       <option value="preselling">Pre-selling</option>
@@ -26,7 +26,7 @@ const sellproperties = () => {
                 </div>
 
                 
-                 <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
+                <div className={`mb-4 ${styles["form-outline"]}`}>
                     <label className="form-label" htmlFor="property-type">Property Type</label>
                     <select required id="property-type" name="property-type" className="form-control">
                       <option value="condo">Condominium</option>
@@ -37,7 +37,7 @@ const sellproperties = () => {
                 </div>
 
              
-                <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
+                <div className={`mb-4 ${styles["form-outline"]}`}>
                     <label className="form-label" htmlFor="selling-price">Selling Price</label>
                     <input required type="number" id="selling-price" className="form-control" />
 
@@ -76,7 +76,7 @@ const sellproperties = () => {
                 </div>
 
               
-                <label>Property Info</label>
+                <label className="mt-4">Property Info</label>
               
                 <div className="row mb-2">
                     <div className="col">
@@ -142,12 +142,12 @@ const sellproperties = () => {
 
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label className="form-label" htmlFor="brokers-fee">Brokers Fee</label>
+                <label className="form-label mt-4" htmlFor="brokers-fee">Brokers Fee</label>
                 <input required type="number" id="brokers-fee" className="form-control" />
               </div>
 
            
-              <label>Owners Info</label>
+              <label className='mt-4'>Owners Info</label>
             
               <div className="row mb-2">
                   <div className="col">
@@ -177,17 +177,17 @@ const sellproperties = () => {
 
     
                <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label className="form-label" htmlFor="add-notes">Additional Notes</label>
+                <label className="form-label mt-4" htmlFor="add-notes">Additional Notes</label>
                 <textarea required id={styles.areaText2} className="form-control"></textarea>
               </div>
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
-                <label htmlFor="pictures" className="form-label">Upload Pictures</label>
+                <label htmlFor="pictures" className="form-label mt-4">Upload Pictures</label>
                 <input required className="form-control" type="file" id="pictures" multiple />
               </div>
 
       
-              <button type="submit" className={`${styles['btn-primary']}  ${styles['mb-4']}`}>Submit Property</button>
+              <button type="submit" className={`mt-4 ${styles['btn-primary']}  ${styles['mb-4']}`}>Submit Property</button>
             </form>
             </div>
           </div>
