@@ -42,7 +42,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg sticky-top">
 
             <div className="container-fluid">
-              <Link href="/"><a className="navbar-brand">Lourdene Buendia</a></Link>
+              <Link href="/"><a className="navbar-brand"><img className="navpicture" src="navlogo.png"/></a></Link>
               <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
