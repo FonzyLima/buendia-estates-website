@@ -82,7 +82,10 @@ const Properties = (props) => {
                   </select>
                   <div className={styles['search-divider2']}></div>
                   <select id="price" name="price">
-                    <option value="price1">Price</option>
+                    <option value="price1" selected disabled>Min Price</option>
+                  </select>
+                  <select id="price" name="price">
+                    <option value="price1" selected disabled>Max Price</option>
                   </select>
                   <div className={styles['search-divider3']}></div>
                   <input type="button" onClick={() => {searchProp()}} value="Search"/>
