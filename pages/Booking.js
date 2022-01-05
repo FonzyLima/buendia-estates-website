@@ -87,6 +87,7 @@ const Booking = () => {
                     Preferred Location
                   </label>
                   <input
+                    required
                     type="text"
                     value={location}
                     onChange={(e) => {
@@ -103,6 +104,7 @@ const Booking = () => {
                     Preferred Property Type
                   </label>
                   <input
+                    required
                     type="text"
                     value={propertyType}
                     onChange={(e) => {
@@ -119,7 +121,8 @@ const Booking = () => {
                     Your Budget
                   </label>
                   <input
-                    type="text"
+                    required
+                    type="number"
                     value={budget}
                     onChange={(e) => {
                       setBudget(e.target.value);
@@ -135,6 +138,7 @@ const Booking = () => {
                     Your Name
                   </label>
                   <input
+                    required
                     type="text"
                     value={name}
                     onChange={(e) => {
@@ -152,6 +156,7 @@ const Booking = () => {
                   <div className="col">
                     <div className={styles["form-outline"]}>
                       <input
+                        required
                         type="text"
                         value={fb}
                         onChange={(e) => {
@@ -167,6 +172,7 @@ const Booking = () => {
                   <div className="col">
                     <div className={styles["form-outline"]}>
                       <input
+                        required
                         type="email"
                         value={email}
                         onChange={(e) => {
@@ -185,6 +191,7 @@ const Booking = () => {
                   <div className="col">
                     <div className={styles["form-outline"]}>
                       <input
+                        required
                         type="number"
                         value={age}
                         onChange={(e) => {
@@ -200,6 +207,7 @@ const Booking = () => {
                   <div className="col">
                     <div className={styles["form-outline"]}>
                       <input
+                        required
                         type="text"
                         value={gender}
                         onChange={(e) => {
@@ -219,6 +227,7 @@ const Booking = () => {
                     Occupation
                   </label>
                   <input
+                    required
                     type="text"
                     value={occupation}
                     onChange={(e) => {
@@ -235,6 +244,7 @@ const Booking = () => {
                     Preferred Schedule
                   </label>
                   <input
+                    required
                     type="date"
                     value={sched}
                     onChange={(e) => {
