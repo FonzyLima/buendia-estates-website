@@ -87,13 +87,19 @@
 }
 
 .btn-primary{
-    background-color:#142B3F;
+    background:#142B3F;
     width:100%;
+    padding: 8px 1%;
+    border-radius:10px;
     color: white;
 }
 
 .btn-primary:hover{
     background-color:#375f81;
+}
+
+.mt-4 {
+    margin-top: 4px;
 }
 
 /* Phone Responsiveness */
