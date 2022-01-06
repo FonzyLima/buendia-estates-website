@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/dist/client/link";
 import styles from "../styles/Home.module.css";
 import { createClient } from "contentful";
 import FProperties from "../components/FProperties";
 import Testimonies from "../components/Testimonies";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -84,12 +86,15 @@ export default function Home(props) {
             involuta aperiri, altera occulta quaedam et voluptatem accusantium
             doloremque.
           </div>
-          <a href="#">
+          <Link href="/sellproperties">
+          <a>
             <div className={styles["sell-learnmore"]}>
               <p>Learn more</p>
               <i className="fas fa-long-arrow-alt-right"></i>
             </div>
           </a>
+          </Link>
+          
         </div>
       </div>
 

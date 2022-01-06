@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/properties.module.css';
+
+
 export default function PropertiesCard({propers}) {
     return (
         <div>
