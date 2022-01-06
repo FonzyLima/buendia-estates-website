@@ -111,11 +111,20 @@ const Properties = (props) => {
                         </select>
                       )
                       :
+                      ( (sort == "availability") ?
+                      (
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <option value="highest" selected>Available First</option>
+                        <option value="lowest">Sold First</option>
+                        </select>
+                      )
+                      :
                       (
                         <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
                         <option value="highest" selected>Highest First</option>
                         <option value="lowest">Lowest First</option>
                         </select>
+                      )
                       )
                     }
 
@@ -188,6 +197,26 @@ const Properties = (props) => {
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
                     }
+
+                    {( (sort == "availability" && hilo == "highest") &&
+                          (properties
+                          .filter((a) => a.fields.isAvailable)
+                          .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "availability" && hilo == "lowest") &&
+                          (properties
+                          .filter((a) => !a.fields.isAvailable)
+                          .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    
                   
                 </div>
               </div>
