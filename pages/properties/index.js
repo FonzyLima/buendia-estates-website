@@ -62,7 +62,7 @@ const Properties = (props) => {
                 <form onSubmit={searchProp}>
                   <select id="location" name="location" onChange={(event) => {setLocation(event.target.value);}}>
                   <option value="" selected disabled>Location</option>
-                  <option value=""> </option>
+                  <option value="">Any</option>
                   {fLocations
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -73,7 +73,7 @@ const Properties = (props) => {
                   <div className={styles['search-divider1']}></div>
                   <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value);}}>
                     <option value="" selected disabled>Property Type</option>
-                    <option value=""> </option>
+                    <option value="">Any</option>
                     {fPropertyType
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -111,11 +111,20 @@ const Properties = (props) => {
                         </select>
                       )
                       :
+                      ( (sort == "availability") ?
+                      (
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <option value="highest" selected>Available First</option>
+                        <option value="lowest">Sold First</option>
+                        </select>
+                      )
+                      :
                       (
                         <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
                         <option value="highest" selected>Highest First</option>
                         <option value="lowest">Lowest First</option>
                         </select>
+                      )
                       )
                     }
 
@@ -188,6 +197,26 @@ const Properties = (props) => {
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
                     }
+
+                    {( (sort == "availability" && hilo == "highest") &&
+                          (properties
+                          .filter((a) => a.fields.isAvailable)
+                          .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    {( (sort == "availability" && hilo == "lowest") &&
+                          (properties
+                          .filter((a) => !a.fields.isAvailable)
+                          .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .map(propers => (
+                            <PropertiesCard key={propers.sys.id} propers={propers}/>
+                          ))) )
+                    }
+
+                    
                   
                 </div>
               </div>
