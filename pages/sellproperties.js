@@ -39,7 +39,7 @@ const sellproperties = () => {
              
                 <div className={`mb-4 ${styles["form-outline"]}`}>
                     <label className="form-label" htmlFor="selling-price">Selling Price</label>
-                    <input required type="number" id="selling-price" className="form-control" />
+                    <input required type="number" min="0" id="selling-price" min="0" className="form-control" />
 
                 </div>
 
@@ -65,12 +65,12 @@ const sellproperties = () => {
                 <div className={`row ${styles['mb-4']}`}>
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="text" id="zip-code" className="form-control" placeholder="Zip Code" />
+                            <input required type="number" min="0" id="zip-code" className="form-control" placeholder="Zip Code" />
                         </div>
                     </div>
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="text" id="maps-link" className="form-control" placeholder="Waze/Google Maps Link" />
+                            <input required type="url" id="maps-link" className="form-control" placeholder="Waze/Google Maps Link" />
                         </div>
                     </div>
                 </div>
@@ -81,12 +81,12 @@ const sellproperties = () => {
                 <div className="row mb-2">
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="number" id="floor-area" className="form-control" placeholder="Floor Area" />
+                            <input required type="number" min="0" id="floor-area" className="form-control" placeholder="Floor Area" />
                         </div>
                     </div>
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="number" id="lot-area" className="form-control" placeholder="Lot Area" />
+                            <input required type="number" min="0" id="lot-area" className="form-control" placeholder="Lot Area" />
                         </div>
                     </div>
                 </div>
@@ -94,12 +94,12 @@ const sellproperties = () => {
                 <div className="row mb-3">
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="number" id="bedrooms" className="form-control" placeholder="Bedrooms" />
+                            <input required type="number" min="0" id="bedrooms" className="form-control" placeholder="Bedrooms" />
                         </div>
                     </div>
                     <div className="col">
                         <div className={styles['form-outline']}>
-                            <input required type="number" id="toilet-and-bath" className="form-control" placeholder="Toilet and Bath" />
+                            <input required type="number" min="0" id="toilet-and-bath" className="form-control" placeholder="Toilet and Bath" />
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ const sellproperties = () => {
                 <div className="row mb-2">
                   <div className="col">
                       <div className={styles['form-outline']}>
-                          <input required type="number" id="property-age" className="form-control" placeholder="Property Age" />
+                          <input required type="number" min="0" id="property-age" className="form-control" placeholder="Property Age" />
                       </div>
                   </div>
                   <div className="col">
@@ -143,7 +143,7 @@ const sellproperties = () => {
 
               <div className={`${styles['form-outline']} ${styles['mb-4']}`}>
                 <label className="form-label mt-4" htmlFor="brokers-fee">Brokers Fee</label>
-                <input required type="number" id="brokers-fee" className="form-control" />
+                <input required type="number" min="0" id="brokers-fee" className="form-control" />
               </div>
 
            
@@ -165,7 +165,7 @@ const sellproperties = () => {
               <div className={`row ${styles['mb-4']}`}>
                   <div className="col">
                       <div className={styles['form-outline']}>
-                          <input required type="text" id="phone-num" className="form-control" placeholder="Phone Number" />
+                          <input required type="tel" placeholder="Phone Number ex. +639162477077" pattern="[+]{1}[0-9]{2}[0-9]{10}" id="phone-num" className="form-control" />
                       </div>
                   </div>
                   <div className="col">
