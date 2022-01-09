@@ -13,6 +13,8 @@ export default function PropertiesCard({propers}) {
                         <img className={styles.proppic} src={'https:'+propers.fields.featuredThumbnail.fields.file.url} alt="pic" />
                         <div className="property-text-container">
                           <h4><b>₱ {propers.fields.featuredPrice.toLocaleString(undefined, {maximumFractionDigits:2})}</b></h4>
+                          <h6>Date Added: {new Date(propers.sys.createdAt).toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'})}
+                                        , {new Date(propers.sys.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h6>
                           <p>{propers.fields.featuredTitle}</p>
                         </div>
                         <div className="property-card-divider1"></div>

@@ -83,6 +83,8 @@ export default function PropertyDetails(props) {
                     <span className={styles["gray-desc"]}>
                       Property Type: {props.propers.fields.propertyType}
                     </span>
+                    <h6>Date Added: {new Date(props.propers.sys.createdAt).toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'})}
+                                        , {new Date(props.propers.sys.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h6>
                   </p>
                 </div>
               </div>
