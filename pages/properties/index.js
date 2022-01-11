@@ -47,13 +47,9 @@ const Properties = (props) => {
       else{
         setProps(props.properties.filter(a => a.fields.propertyType == propType && a.fields.featuredLocation == location).map(p => p));
       }
-
-      if(loadPage > properties.length){
-        setPage(properties.length);
-      }
-      else{
-        setPage(loadPage);
-      }
+      
+      setPage(loadPage);
+      
         
     }
 
@@ -265,7 +261,7 @@ const Properties = (props) => {
                   
                 }
                 <div className="load-more">
-                  <p>Showing {page} of {properties.length} properties</p>
+                  <p>Showing {(page < properties.length) ? page : properties.length} of {properties.length} properties</p>
                 </div>
               </div>
             </div>
