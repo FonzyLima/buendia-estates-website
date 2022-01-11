@@ -278,9 +278,8 @@ input {
 }
 
 .load-more input {
-    width: fit-content;
+    width: 60%;
     height: 40px;
-
     border-radius: 5px;
     text-align: center;
 
@@ -289,6 +288,14 @@ input {
     
     margin-top: 20px;
     margin-left: 0px;
+}
+
+.load-more p {
+    margin-top: 20px;
+}
+
+.load-more input:hover {
+    background-color:#375f81;
 }
 
 /* Phone Responsiveness */
