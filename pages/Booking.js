@@ -35,7 +35,7 @@ const Booking = () => {
           setName("");
           setFb("");
           setEmail("");
-          setAge(0);
+          setAge(null);
           setGender("");
           setOccupation("");
           setSched("");
@@ -57,7 +57,7 @@ const Booking = () => {
   const [name, setName] = useState("");
   const [fb, setFb] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState(null);
   const [gender, setGender] = useState("");
   const [occupation, setOccupation] = useState("");
   const [sched, setSched] = useState(new Date());
@@ -127,6 +127,7 @@ const Booking = () => {
                     onChange={(e) => {
                       setBudget(e.target.value);
                     }}
+                    min="0"
                     name="yourBudget"
                     id="yourBudget"
                     className="form-control"
@@ -198,6 +199,8 @@ const Booking = () => {
                           setAge(e.target.value);
                         }}
                         name="age"
+                        min="0"
+                        step="1"
                         id="Age"
                         className="form-control"
                         placeholder="Age"
