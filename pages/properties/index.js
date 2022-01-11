@@ -248,6 +248,7 @@ const Properties = (props) => {
 
                     
                   
+                  </div>
                 </div>
                 {
                   (page < properties.length) &&
@@ -263,7 +264,6 @@ const Properties = (props) => {
                 <div className="load-more">
                   <p>Showing {(page < properties.length) ? page : properties.length} of {properties.length} properties</p>
                 </div>
-              </div>
             </div>
           </div>
         </div>
