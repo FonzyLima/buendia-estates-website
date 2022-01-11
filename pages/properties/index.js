@@ -4,6 +4,7 @@ import styles from '../../styles/properties.module.css';
 import {createClient } from "contentful";
 
 
+
 export async function getStaticProps(){
     const client = createClient({
       space: process.env.CONTENTFUL_SPACE,
@@ -22,12 +23,13 @@ export async function getStaticProps(){
   }
   
 const Properties = (props) => {
-
+    const loadPage = 2;
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
     const [properties, setProps] = useState(props.properties);
     const [propType, setPropType] = useState("");
     const [location, setLocation] = useState("");
+    const [page, setPage] = useState(loadPage);
 
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
@@ -45,6 +47,24 @@ const Properties = (props) => {
       else{
         setProps(props.properties.filter(a => a.fields.propertyType == propType && a.fields.featuredLocation == location).map(p => p));
       }
+      
+      setPage(loadPage);
+      
+        
+    }
+
+    function addPage(){
+      if((page + loadPage) > properties.length)
+        setPage(properties.length)
+      else
+        setPage(page + loadPage);
+    }
+
+    function resetPage(){
+      if(loadPage > properties.length)
+        setPage(properties.length);
+      else
+        setPage(loadPage);
     }
 
     return (  
@@ -85,7 +105,7 @@ const Properties = (props) => {
                     <option value="price1">Price</option>
                   </select>
                   <div className={styles['search-divider3']}></div>
-                  <input type="button" onClick={() => {searchProp()}} value="Search"/>
+                  <input type="button" onClick={searchProp} value="Search"/>
                 </form>
               </div>
             </div>
@@ -95,7 +115,7 @@ const Properties = (props) => {
             <div className={styles['properties-container']}>
               <div className={styles.sort}>
                 <form action="">
-                  <select id="sort-by" name="sort-by" onChange={(event) => {setSort(event.target.value)}}>
+                  <select id="sort-by" name="sort-by" onChange={(event) => {setSort(event.target.value); resetPage()}}>
                     <option value="price">Sort by Price</option>
                     <option value="availability">Sort by Availability</option>
                     <option value="date-added" selected>Sort by Date Added</option>
@@ -105,7 +125,7 @@ const Properties = (props) => {
                   <div className={styles['sort-divider']}></div>
                     { (sort == "date-added") ?
                       (
-                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value); resetPage()}}>
                         <option value="highest" selected>Latest First</option>
                         <option value="lowest">Oldest First</option>
                         </select>
@@ -113,14 +133,14 @@ const Properties = (props) => {
                       :
                       ( (sort == "availability") ?
                       (
-                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value); resetPage()}}>
                         <option value="highest" selected>Available First</option>
                         <option value="lowest">Sold First</option>
                         </select>
                       )
                       :
                       (
-                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value)}}>
+                        <select id="low-high-first" name="low-high-first" onChange={(event) => {setHiLo(event.target.value); resetPage()}}>
                         <option value="highest" selected>Highest First</option>
                         <option value="lowest">Lowest First</option>
                         </select>
@@ -137,6 +157,7 @@ const Properties = (props) => {
                     {( (sort == "date-added" && hilo == "highest") &&
                           (properties
                             .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                            .slice(0, page)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -145,6 +166,7 @@ const Properties = (props) => {
                     {( (sort == "date-added" && hilo == "lowest") &&
                           (properties
                             .sort((a,b) => a.sys.createdAt > b.sys.createdAt ? 1:-1)
+                            .slice(0, page)
                             .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -153,6 +175,7 @@ const Properties = (props) => {
                     {( (sort == "price" && hilo == "highest") &&
                           (properties
                           .sort((a,b) => b.fields.featuredPrice - a.fields.featuredPrice)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -161,6 +184,7 @@ const Properties = (props) => {
                     {( (sort == "price" && hilo == "lowest") &&
                           (properties
                           .sort((a,b) => a.fields.featuredPrice - b.fields.featuredPrice)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -169,6 +193,7 @@ const Properties = (props) => {
                     {( (sort == "floor-area" && hilo == "highest") &&
                           (properties
                           .sort((a,b) => b.fields.floorArea - a.fields.floorArea)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -177,6 +202,7 @@ const Properties = (props) => {
                     {( (sort == "floor-area" && hilo == "lowest") &&
                           (properties
                           .sort((a,b) => a.fields.floorArea - b.fields.floorArea)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -185,6 +211,7 @@ const Properties = (props) => {
                     {( (sort == "lot-area" && hilo == "highest") &&
                           (properties
                           .sort((a,b) => b.fields.lotArea - a.fields.lotArea)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -193,6 +220,7 @@ const Properties = (props) => {
                     {( (sort == "lot-area" && hilo == "lowest") &&
                           (properties
                           .sort((a,b) => a.fields.lotArea - b.fields.lotArea)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -202,6 +230,7 @@ const Properties = (props) => {
                           (properties
                           .filter((a) => a.fields.isAvailable)
                           .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -211,6 +240,7 @@ const Properties = (props) => {
                           (properties
                           .filter((a) => !a.fields.isAvailable)
                           .sort((a,b) =>  b.sys.createdAt > a.sys.createdAt ? 1:-1)
+                          .slice(0, page)
                           .map(propers => (
                             <PropertiesCard key={propers.sys.id} propers={propers}/>
                           ))) )
@@ -218,8 +248,22 @@ const Properties = (props) => {
 
                     
                   
+                  </div>
                 </div>
-              </div>
+                {
+                  (page < properties.length) &&
+                  (
+                  <>
+                  <div className="load-more">
+                  <input type="button" onClick={() => {addPage()}} value="Load More"/>
+                  </div>
+                  </>
+                  )
+                  
+                }
+                <div className="load-more">
+                  <p>Showing {(page < properties.length) ? page : properties.length} of {properties.length} properties</p>
+                </div>
             </div>
           </div>
         </div>

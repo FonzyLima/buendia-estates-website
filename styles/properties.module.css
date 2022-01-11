@@ -39,6 +39,10 @@
     padding-top: 10px;
 }
 
+.date-added {
+    color: gray;
+}
+
 .search {
     background-color: white;
     width: 95%;
@@ -152,6 +156,10 @@
 
     font-weight: 500;
     font-size: 17px;
+}
+
+.properties-box{
+    margin-bottom: 40px;
 }
 
 /* Phone Responsiveness */

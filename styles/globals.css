@@ -270,6 +270,31 @@ input {
     height: 83px;
 }
 
+.load-more {
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+
+.load-more input {
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+
+    background: #254F72;
+    color: white;
+    
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
+
+.load-more input:hover {
+    background-color:#375f81;
+}
+
+
 /* Phone Responsiveness */
 @media screen and (max-width: 519px)
 {    
