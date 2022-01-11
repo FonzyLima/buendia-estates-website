@@ -39,6 +39,10 @@
     padding-top: 10px;
 }
 
+.date-added {
+    color: gray;
+}
+
 .search {
     background-color: white;
     width: 95%;
