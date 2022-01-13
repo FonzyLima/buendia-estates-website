@@ -40,27 +40,6 @@ export default function Home(props) {
               disserendum et harum quidem exercitus quid.
             </p>
           </div>
-
-          <div className={styles.search}>
-            <form action="">
-              <select id="location" name="location">
-                <option value="location1">Location</option>
-              </select>
-              <div className={styles["search-divider1"]}></div>
-              <select id="propertytype" name="propertytype">
-                <option value="propertytype1">Property Type</option>
-              </select>
-              <div className={styles["search-divider2"]}></div>
-              <div className={styles["price-range"]} name="price">Price Range</div>
-              <input className={styles["pr-minval"]} id="pr-minval" type="number" name="pr-minval" placeholder="1000000"></input>
-              <div className={styles["price-range-to"]}>to</div>
-              <input className={styles["pr-maxval"]} id="pr-maxval" type="number" name="pr-maxval" placeholder="200000000"></input>
-              <div className={styles["search-divider3"]}></div>
-              <input className={styles["btn-clear"]} type="button" value="Clear"/>
-              <div className={styles["search-divider4"]}></div>
-              <input className={styles["btn-search"]} type="submit" value="Search" />
-            </form>
-          </div>
         </div>
       </div>
 

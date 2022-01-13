@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropertiesCard from '../../components/PropertiesCard';
 import styles from '../../styles/properties.module.css';
+import homestyles from "../../styles/Home.module.css";
 import {createClient } from "contentful";
 
 
@@ -23,7 +24,7 @@ export async function getStaticProps(){
   }
   
 const Properties = (props) => {
-    const loadPage = 2;
+    const loadPage = 9;
     const [sort, setSort] = useState("date-added");
     const [hilo, setHiLo] = useState("highest");
     const [properties, setProps] = useState(props.properties);
@@ -77,20 +78,19 @@ const Properties = (props) => {
                 <p>In oculis quidem se esse admonere interesse enim maxime placeat, facere possimus, omnis. Et quidem faciunt, ut labore et accurate disserendum et harum quidem exercitus quid.</p>
               </div>
 
-       
-              <div className={styles.search}>
+              <div className={homestyles.search}>
                 <form onSubmit={searchProp}>
                   <select id="location" name="location" onChange={(event) => {setLocation(event.target.value);}}>
-                  <option value="" selected disabled>Location</option>
-                  <option value="">Any</option>
-                  {fLocations
-                    .sort((a,b) => a > b ? 1:-1)
-                    .map(propers => (
-                        <option key={propers} value={propers}>{propers}</option>
-                    ))}
+                    <option value="" selected disabled>Location</option>
+                    <option value="">Any</option>
+                    {fLocations
+                      .sort((a,b) => a > b ? 1:-1)
+                      .map(propers => (
+                          <option key={propers} value={propers}>{propers}</option>
+                      ))}
                     
                   </select>
-                  <div className={styles['search-divider1']}></div>
+                  <div className={homestyles["search-divider1"]}></div>
                   <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value);}}>
                     <option value="" selected disabled>Property Type</option>
                     <option value="">Any</option>
@@ -100,12 +100,15 @@ const Properties = (props) => {
                         <option key={propers} value={propers}>{propers}</option>
                     ))}
                   </select>
-                  <div className={styles['search-divider2']}></div>
-                  <select id="price" name="price">
-                    <option value="price1">Price</option>
-                  </select>
-                  <div className={styles['search-divider3']}></div>
-                  <input type="button" onClick={searchProp} value="Search"/>
+                  <div className={homestyles["search-divider2"]}></div>
+                  <div className={homestyles["price-range"]} name="price">Price Range</div>
+                  <input className={homestyles["pr-minval"]} id="pr-minval" type="number" name="pr-minval" min="0" placeholder="1000000"></input>
+                  <div className={homestyles["price-range-to"]}>to</div>
+                  <input className={homestyles["pr-maxval"]} id="pr-maxval" type="number" name="pr-maxval" min="0" placeholder="200000000"></input>
+                  <div className={homestyles["search-divider3"]}></div>
+                  <input className={homestyles["btn-clear"]} type="button" value="Clear"/>
+                  <div className={homestyles["search-divider4"]}></div>
+                  <input className={homestyles["btn-search"]} type="button" onClick={searchProp} value="Search" />
                 </form>
               </div>
             </div>
