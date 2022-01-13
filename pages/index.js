@@ -51,11 +51,14 @@ export default function Home(props) {
                 <option value="propertytype1">Property Type</option>
               </select>
               <div className={styles["search-divider2"]}></div>
-              <select id="price" name="price">
-                <option value="price1">Price</option>
-              </select>
+              <div className={styles["price-range"]} name="price">Price Range</div>
+              <input className={styles["pr-minval"]} id="pr-minval" type="number" name="pr-minval" placeholder="1000000"></input>
+              <div className={styles["price-range-to"]}>to</div>
+              <input className={styles["pr-maxval"]} id="pr-maxval" type="number" name="pr-maxval" placeholder="200000000"></input>
               <div className={styles["search-divider3"]}></div>
-              <input type="submit" value="Search" />
+              <input className={styles["btn-clear"]} type="button" value="Clear"/>
+              <div className={styles["search-divider4"]}></div>
+              <input className={styles["btn-search"]} type="submit" value="Search" />
             </form>
           </div>
         </div>
