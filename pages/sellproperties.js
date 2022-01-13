@@ -1,5 +1,13 @@
 import styles from '../styles/sellproperties.module.css'
+import { Slider } from '@mui/material';
+import { useState } from 'react';
+
 const sellproperties = () => {
+
+  const [sliderValue,setSliderValue] = useState([0,200])
+  const handleChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
     return (  
         <div>
         <div className="hero">
@@ -15,7 +23,10 @@ const sellproperties = () => {
             <div className={styles['sell-box']}>
               <h3 className="sellform-title">Sell A Property</h3>
               <form>
-                
+                <div className={`mb-4 ${styles["form-outline"]}`}>
+                  <Slider valueLabelDisplay="on" value={sliderValue} onChange={handleChange
+                  }/>
+                </div>
                 <div className={`mb-4 ${styles["form-outline"]}`}>
                     <label className="form-label" htmlFor="property-type">Type</label>
                     <select required id="type" name="type" className="form-control inputbox">
