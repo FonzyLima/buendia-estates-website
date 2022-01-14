@@ -2,6 +2,7 @@ import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Toast from "../components/Toast";
+import { Slider } from "@mui/material";
 
 const Booking = () => {
   //Calls the toast component to be displayed
@@ -62,7 +63,10 @@ const Booking = () => {
   const [occupation, setOccupation] = useState("");
   const [sched, setSched] = useState(new Date());
   const [notes, setNotes] = useState("");
-
+  const [sliderValue, setSliderValue] = useState([10000, 1000000]);
+  const handleChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
   return (
     <div>
       <div className="hero">
@@ -132,6 +136,14 @@ const Booking = () => {
                     id="yourBudget"
                     className="form-control"
                   />
+                  <Slider
+                  valueLabelDisplay="on"
+                  value={sliderValue}
+                  onChange={handleChange}
+                  min={100000}
+                  max={10000000}
+                  step={10000}
+                />
                 </div>
 
                 <div className={`mb-4 ${styles["form-outline"]}`}>
