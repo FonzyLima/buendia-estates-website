@@ -32,8 +32,8 @@ const Properties = (props) => {
     const [location, setLocation] = useState("");
     const [page, setPage] = useState(loadPage);
 
-    const [minval, setMinVal] = useState(0);
-    const [maxval, setMaxVal] = useState(9999999999999);
+    const [minval, setMinVal] = useState("");
+    const [maxval, setMaxVal] = useState("");
 
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
