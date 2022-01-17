@@ -40,16 +40,46 @@ const Properties = (props) => {
 
     function searchProp(){
       if((propType == "" || propType == "any") && (location == "" || location == "any")){
-        setProps(props.properties.filter(a => a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval).map(p => p));
+        if(minval != "" && maxval != "")
+          setProps(props.properties.filter(a => a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval).map(p => p));
+        else if(minval != "")
+          setProps(props.properties.filter(a => a.fields.featuredPrice >= minval).map(p => p));
+        else if(maxval != "")
+          setProps(props.properties.filter(a => a.fields.featuredPrice >= maxval).map(p => p));
+        else
+          setProps(props.properties);
       }
       else if(propType != "" && (location == "" || location == "any")){
-        setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        if(minval != "" && maxval != "")
+          setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        else if(minval != "")
+          setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice >= minval)).map(p => p));
+        else if(maxval != "")
+          setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice <= maxval)).map(p => p));
+        else
+          setProps(props.properties.filter(a => a.fields.propertyType == propType).map(p => p));
       }
       else if((propType == "" || propType == "any") && (location != "" || location != "any")){
-        setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        if(minval != "" && maxval != "")
+          setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        else if(minval != "")
+          setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice >= minval)).map(p => p));
+        else if(maxval != "")
+          setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice <= maxval)).map(p => p));
+        else
+          setProps(props.properties.filter(a => a.fields.featuredLocation == location).map(p => p));
+        
       }
       else{
-        setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location) && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        if(minval != "" && maxval != "")
+          setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location) && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
+        else if(minval != "")
+          setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location) && (a.fields.featuredPrice >= minval)).map(p => p));
+        else if(maxval != "")
+          setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location) && (a.fields.featuredPrice <= maxval)).map(p => p));
+        else
+          setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location)).map(p => p));
+        
       }
 
       setPage(loadPage);
