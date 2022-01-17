@@ -33,19 +33,19 @@ const Properties = (props) => {
     const [page, setPage] = useState(loadPage);
 
     const [minval, setMinVal] = useState(0);
-    const [maxval, setMaxVal] = useState(999999999)
+    const [maxval, setMaxVal] = useState(9999999999999);
 
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
 
     function searchProp(){
-      if(propType == "" && location == ""){
+      if((propType == "" || propType == "any") && (location == "" || location == "any")){
         setProps(props.properties.filter(a => a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval).map(p => p));
       }
-      else if(propType != "" && location == ""){
+      else if(propType != "" && (location == "" || location == "any")){
         setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
       }
-      else if(propType == "" && location != ""){
+      else if((propType == "" || propType == "any") && (location != "" || location != "any")){
         setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
       }
       else{
@@ -53,9 +53,14 @@ const Properties = (props) => {
       }
 
       setPage(loadPage);
-      
-      
-        
+
+    }
+
+    function clearBar(){
+      setMinVal("");
+      setMaxVal("");
+      setPropType("");
+      setLocation("");
     }
 
     function addPage(){
@@ -84,9 +89,9 @@ const Properties = (props) => {
 
               <div className={homestyles.search}>
                 <form onSubmit={searchProp}>
-                  <select id="location" name="location" onChange={(event) => {setLocation(event.target.value);}}>
+                  <select id="location" name="location" value={location} onChange={(event) => {setLocation(event.target.value);}}>
                     <option value="" selected disabled>Location</option>
-                    <option value="">Any</option>
+                    <option value="any">Any</option>
                     {fLocations
                       .sort((a,b) => a > b ? 1:-1)
                       .map(propers => (
@@ -95,9 +100,9 @@ const Properties = (props) => {
                     
                   </select>
                   <div className={homestyles["search-divider1"]}></div>
-                  <select id="propertytype" name="propertytype" onChange={(event) => {setPropType(event.target.value);}}>
+                  <select id="propertytype" name="propertytype" value={propType} onChange={(event) => {setPropType(event.target.value);}}>
                     <option value="" selected disabled>Property Type</option>
-                    <option value="">Any</option>
+                    <option value="any">Any</option>
                     {fPropertyType
                     .sort((a,b) => a > b ? 1:-1)
                     .map(propers => (
@@ -106,11 +111,11 @@ const Properties = (props) => {
                   </select>
                   <div className={homestyles["search-divider2"]}></div>
                   <div className={homestyles["price-range"]} name="price">Price Range</div>
-                  <input className={homestyles["pr-minval"]} id="pr-minval" onKeyUp={(event) => {setMinVal(event.target.value)}} type="number" name="pr-minval" min="0" value="0" placeholder="1000000"></input>
+                  <input className={homestyles["pr-minval"]} id="pr-minval" onChange={(event) => {setMinVal(event.target.value)}} type="number" name="pr-minval" min="0" value={minval} placeholder="1000000"></input>
                   <div className={homestyles["price-range-to"]}>to</div>
-                  <input className={homestyles["pr-maxval"]} id="pr-maxval" onKeyUp={(event) => {setMaxVal(event.target.value)}} type="number" name="pr-maxval" min="0" value="100000000" placeholder="200000000"></input>
+                  <input className={homestyles["pr-maxval"]} id="pr-maxval" onChange={(event) => {setMaxVal(event.target.value)}} type="number" name="pr-maxval" min="0" value={maxval} placeholder="200000000"></input>
                   <div className={homestyles["search-divider3"]}></div>
-                  <input className={homestyles["btn-clear"]} type="button" value="Clear"/>
+                  <input className={homestyles["btn-clear"]} type="button" onClick={clearBar} value="Clear"/>
                   <div className={homestyles["search-divider4"]}></div>
                   <input className={homestyles["btn-search"]} type="button" onClick={searchProp} value="Search" />
                 </form>
