@@ -32,24 +32,28 @@ const Properties = (props) => {
     const [location, setLocation] = useState("");
     const [page, setPage] = useState(loadPage);
 
+    const [minval, setMinVal] = useState(0);
+    const [maxval, setMaxVal] = useState(999999999)
+
     const fLocations = [...new Set(props.properties.map(p => p.fields.featuredLocation))];
     const fPropertyType = [...new Set(props.properties.map(p => p.fields.propertyType))];
 
     function searchProp(){
       if(propType == "" && location == ""){
-        setProps(props.properties);
+        setProps(props.properties.filter(a => a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval).map(p => p));
       }
       else if(propType != "" && location == ""){
-        setProps(props.properties.filter(a => a.fields.propertyType == propType).map(p => p));
+        setProps(props.properties.filter(a => a.fields.propertyType == propType && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
       }
       else if(propType == "" && location != ""){
-        setProps(props.properties.filter(a => a.fields.featuredLocation == location).map(p => p));
+        setProps(props.properties.filter(a => a.fields.featuredLocation == location && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
       }
       else{
-        setProps(props.properties.filter(a => a.fields.propertyType == propType && a.fields.featuredLocation == location).map(p => p));
+        setProps(props.properties.filter(a => (a.fields.propertyType == propType && a.fields.featuredLocation == location) && (a.fields.featuredPrice >= minval && a.fields.featuredPrice <= maxval)).map(p => p));
       }
-      
+
       setPage(loadPage);
+      
       
         
     }
@@ -102,9 +106,9 @@ const Properties = (props) => {
                   </select>
                   <div className={homestyles["search-divider2"]}></div>
                   <div className={homestyles["price-range"]} name="price">Price Range</div>
-                  <input className={homestyles["pr-minval"]} id="pr-minval" type="number" name="pr-minval" min="0" placeholder="1000000"></input>
+                  <input className={homestyles["pr-minval"]} id="pr-minval" onKeyUp={(event) => {setMinVal(event.target.value)}} type="number" name="pr-minval" min="0" value="0" placeholder="1000000"></input>
                   <div className={homestyles["price-range-to"]}>to</div>
-                  <input className={homestyles["pr-maxval"]} id="pr-maxval" type="number" name="pr-maxval" min="0" placeholder="200000000"></input>
+                  <input className={homestyles["pr-maxval"]} id="pr-maxval" onKeyUp={(event) => {setMaxVal(event.target.value)}} type="number" name="pr-maxval" min="0" value="100000000" placeholder="200000000"></input>
                   <div className={homestyles["search-divider3"]}></div>
                   <input className={homestyles["btn-clear"]} type="button" value="Clear"/>
                   <div className={homestyles["search-divider4"]}></div>
