@@ -167,10 +167,6 @@ const Sellproperties = () => {
                       name="mapsLink"
                       className="form-control"
                       placeholder="Waze/Google Maps Link"
-                      type="text"
-                      id="region"
-                      className="form-control"
-                      placeholder="Region"
                     />
                   </div>
                 </div>
