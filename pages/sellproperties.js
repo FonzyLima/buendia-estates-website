@@ -167,13 +167,42 @@ const Sellproperties = () => {
                       name="mapsLink"
                       className="form-control"
                       placeholder="Waze/Google Maps Link"
+                      type="text"
+                      id="region"
+                      className="form-control"
+                      placeholder="Region"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className={`row ${styles["mb-4"]}`}>
+                <div className="col">
+                  <div className={styles["form-outline"]}>
+                    <input
+                      required
+                      type="number"
+                      min="0"
+                      id="zip-code"
+                      className="form-control"
+                      placeholder="Zip Code"
+                    />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className={styles["form-outline"]}>
+                    <input
+                      required
+                      type="url"
+                      id="maps-link"
+                      className="form-control"
+                      placeholder="Waze/Google Maps Link"
                     />
                   </div>
                 </div>
               </div>
 
               <label className="mt-4">Property Info</label>
-
               <div className="row mb-2">
                 <div className="col">
                   <div className={styles["form-outline"]}>
@@ -414,5 +443,4 @@ const Sellproperties = () => {
     </div>
   );
 };
-
 export default Sellproperties;
