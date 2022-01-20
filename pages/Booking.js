@@ -32,7 +32,7 @@ const Booking = () => {
           // clear form inputs
           setLocation("");
           setPropertyType("");
-          setBudget("");
+          setSliderValue([10000, 1000000]);
           setName("");
           setFb("");
           setEmail("");
@@ -54,7 +54,6 @@ const Booking = () => {
   // Initial values of form inputs
   const [location, setLocation] = useState("");
   const [propertyType, setPropertyType] = useState("");
-  const [budget, setBudget] = useState("");
   const [name, setName] = useState("");
   const [fb, setFb] = useState("");
   const [email, setEmail] = useState("");
@@ -63,7 +62,7 @@ const Booking = () => {
   const [occupation, setOccupation] = useState("");
   const [sched, setSched] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const [sliderValue, setSliderValue] = useState([10000, 1000000]);
+  const [sliderValue, setSliderValue] = useState([2500000, 8000000]);
   const handleChange = (event, newValue) => {
     setSliderValue(newValue);
   };
@@ -124,23 +123,11 @@ const Booking = () => {
                   <label className="form-label" htmlFor="yourBudget">
                     Your Budget
                   </label>
-                  <input
-                    required
-                    type="number"
-                    value={budget}
-                    onChange={(e) => {
-                      setBudget(e.target.value);
-                    }}
-                    min="0"
-                    name="yourBudget"
-                    id="yourBudget"
-                    className="form-control"
-                  />
                   <Slider
                   valueLabelDisplay="on"
                   value={sliderValue}
                   onChange={handleChange}
-                  min={100000}
+                  min={1000000}
                   max={10000000}
                   step={10000}
                 />
