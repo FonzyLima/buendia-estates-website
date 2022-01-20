@@ -15,7 +15,7 @@ test('Properties Page can be accessed through navbar', async({page}) => {
 test('Sell a Property Page can be accessed through navbar', async({page}) => {
     await page.goto('http://localhost:3000/');
     await page.click('text=Sell a Property');
-    await expect(page).toHaveURL('http://localhost:3000/Sellproperties');
+    await expect(page).toHaveURL('http://localhost:3000/sellproperties');
 
 })
 
