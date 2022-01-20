@@ -32,7 +32,7 @@ const Booking = () => {
           // clear form inputs
           setLocation("");
           setPropertyType("");
-          setSliderValue([10000, 1000000]);
+          setSliderValue([2500000, 8000000]);
           setName("");
           setFb("");
           setEmail("");
@@ -130,6 +130,7 @@ const Booking = () => {
                   min={1000000}
                   max={10000000}
                   step={10000}
+                  name="yourBudget"
                 />
                 </div>
 
