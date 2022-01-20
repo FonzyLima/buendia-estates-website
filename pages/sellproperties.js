@@ -12,6 +12,10 @@ const Sellproperties = () => {
   const dismiss = React.useCallback(() => {
     Toast.dismiss();
   }, []);
+  //Function to reset form
+  const resetForm = () => {
+    document.getElementById("sellForm").reset();
+  };
   async function handleOnSubmit(e) {
     e.preventDefault();
 
@@ -27,16 +31,15 @@ const Sellproperties = () => {
           console.log(result.text);
           notify("success", "Message Sent");
           // clear form inputs
-    
+          resetForm();
         },
         (error) => {
           console.log(error.text);
-          notify("error", "Booking Failed Please Try Again");
+          notify("error", "Message Failed to Send, Please Try Again");
         }
       );
-
-  
   }
+
   return (
     <div>
       <div className="hero">
@@ -54,7 +57,7 @@ const Sellproperties = () => {
         <div className={styles["sell-bg"]}>
           <div className={styles["sell-box"]}>
             <h3 className="sellform-title">Sell A Property</h3>
-            <form method="post" onSubmit={handleOnSubmit}>
+            <form id="sellForm" method="post" onSubmit={handleOnSubmit}>
               <div className={`mb-4 ${styles["form-outline"]}`}>
                 <label className="form-label" htmlFor="property-type">
                   Type
