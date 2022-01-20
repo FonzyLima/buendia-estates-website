@@ -24,9 +24,12 @@ nav .nav-link, nav .navbar-brand {
     margin: 0%;
 }
 
+.nav-item a:hover {
+    color: #18354c;
+}
+
 .navpicture{
     height: 45px;
-    
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -115,7 +118,7 @@ nav .nav-link, nav .navbar-brand {
     justify-content: center;
 }
 
-.contact-us {
+.footer {
     padding-top: 75px;
     padding-bottom: 75px;
     width: 100%;
@@ -124,142 +127,48 @@ nav .nav-link, nav .navbar-brand {
     background-color: #142B3F;
 }
 
-.contact-title {
-    font-weight: bold;
-    font-size: 50px;
-    text-align: center;
-    color: white;
+.footer-logo {
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 90px;
 }
 
-.contact-section {
+.footer-section {
     padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    /* width: 95%;
-    max-width: 1080px; */
 
     width: 90%;
     max-width: 1210px;
     margin: auto;
 }
 
-.contact-form {
-    width: 90%;
-    max-width: 540px;
-}
-
-.contact-form form {
-    width: 100%;
-}
-
-.contact-form ::placeholder {
+.footer-section h3 {
     font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-
-    padding-top: 5px;
-    text-indent: 10px;
+    font-size: 20px;
+    color: white;
 }
 
-.contact-name {
-    max-width: 100%;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
+.footer-section a, .footer-section p{
+    font-weight: 100;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
 }
 
-input {
-    border: none;
+.footer-section a:hover {
+    text-decoration: none;
+    color: #B9B9B9;
 }
 
-#fname {
-    height: 40px;
-    width: 100%;
-    border-radius: 5px;
-    align-self: center;
-    margin-top: 0px;
-    margin-right: 20px;
-    margin-left: 0px;
-}
-
-#lname {
-    height: 40px;
-    width: 100%;
-    border-radius: 5px;
-    align-self: center;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
-.contact-info {
-    width: 100%;
+.explore, .contact, .connect {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.contact-info input, .contact-info textarea{
-    width: 100%;
-    height: 40px;
-
-    border-radius: 5px;
-    align-self: center;
-    margin-top: 20px;
-}
-
-.contact-info textarea{
-    width: 100%;
-    height: 100px;
-
-    resize: none;
-    border-radius: 5px;
-    align-self: center;
-    margin-top: 20px;
-}
-
-.contact-submit {
-    width: 100%;
-}
-
-.contact-submit input {
-    width: fit-content;
-    height: 40px;
-
-    border-radius: 5px;
-    text-align: center;
-
-    background: #254F72;
-    color: white;
-    
-    margin-top: 20px;
-    margin-left: 0px;
-}
-
-.contact-links {
-    width: 100%;
-    max-width: 540px;
-    text-align: center;
-}
-
-.link-email {
-    color: white;
-    font-size: 25px;
-}
-
-.link-num {
-    margin-top: 20px;
-    color: white;
-    font-size: 25px;
-}
-
-.link-fb {
-    margin-top: 20px;
-    color: white;
-    font-size: 25px;
-}
 .botButton{
     width: 300px; 
     background-color: #999; 

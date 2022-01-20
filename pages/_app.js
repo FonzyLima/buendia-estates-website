@@ -4,7 +4,7 @@ import "boxicons/css/boxicons.css";
 import * as React from "react";
 
 import Navbar from "../components/Navbar";
-import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
         appId= {process.env.CHATBOT_APP_ID}
       />
       
-      <Contact />
+      <Footer />
     </>
   );
 }
