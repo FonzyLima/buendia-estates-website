@@ -1,8 +1,45 @@
 import styles from "../styles/sellproperties.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import Toast from "../components/Toast";
 
-const sellproperties = () => {
-  
+const Sellproperties = () => {
+  //Calls the toast component to be displayed
+  const notify = React.useCallback((type, message) => {
+    Toast({ type, message });
+  }, []);
+
+  const dismiss = React.useCallback(() => {
+    Toast.dismiss();
+  }, []);
+  //Function to reset form
+  const resetForm = () => {
+    document.getElementById("sellForm").reset();
+  };
+  async function handleOnSubmit(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_ykiu25s",
+        "sell_properties",
+        e.target,
+        "user_BRUVe3i2hOLzfQYycpRJF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          notify("success", "Message Sent");
+          // clear form inputs
+          resetForm();
+        },
+        (error) => {
+          console.log(error.text);
+          notify("error", "Message Failed to Send, Please Try Again");
+        }
+      );
+  }
+
   return (
     <div>
       <div className="hero">
@@ -20,10 +57,7 @@ const sellproperties = () => {
         <div className={styles["sell-bg"]}>
           <div className={styles["sell-box"]}>
             <h3 className="sellform-title">Sell A Property</h3>
-            <form>
-              <div className={`mb-4 ${styles["form-outline"]}`}>
-                
-              </div>
+            <form id="sellForm" method="post" onSubmit={handleOnSubmit}>
               <div className={`mb-4 ${styles["form-outline"]}`}>
                 <label className="form-label" htmlFor="property-type">
                   Type
@@ -47,7 +81,7 @@ const sellproperties = () => {
                 <select
                   required
                   id="property-type"
-                  name="property-type"
+                  name="propertyType"
                   className="form-control"
                 >
                   <option value="condo">Condominium</option>
@@ -65,6 +99,7 @@ const sellproperties = () => {
                   required
                   type="number"
                   id="selling-price"
+                  name="sellingPrice"
                   min="0"
                   className="form-control"
                 />
@@ -76,6 +111,7 @@ const sellproperties = () => {
                   required
                   type="text"
                   id="street-address"
+                  name="streetAddress"
                   className="form-control"
                   placeholder="Street Address"
                 />
@@ -88,6 +124,7 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="city"
+                      name="city"
                       className="form-control"
                       placeholder="City"
                     />
@@ -99,8 +136,37 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="region"
+                      name="region"
                       className="form-control"
                       placeholder="Region"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className={`row ${styles["mb-4"]}`}>
+                <div className="col">
+                  <div className={styles["form-outline"]}>
+                    <input
+                      required
+                      type="number"
+                      min="0"
+                      id="zip-code"
+                      name="zipCode"
+                      className="form-control"
+                      placeholder="Zip Code"
+                    />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className={styles["form-outline"]}>
+                    <input
+                      required
+                      type="url"
+                      id="maps-link"
+                      name="mapsLink"
+                      className="form-control"
+                      placeholder="Waze/Google Maps Link"
                     />
                   </div>
                 </div>
@@ -133,7 +199,6 @@ const sellproperties = () => {
               </div>
 
               <label className="mt-4">Property Info</label>
-
               <div className="row mb-2">
                 <div className="col">
                   <div className={styles["form-outline"]}>
@@ -142,6 +207,7 @@ const sellproperties = () => {
                       type="number"
                       min="0"
                       id="floor-area"
+                      name="floorArea"
                       className="form-control"
                       placeholder="Floor Area"
                     />
@@ -154,6 +220,7 @@ const sellproperties = () => {
                       type="number"
                       min="0"
                       id="lot-area"
+                      name="lotArea"
                       className="form-control"
                       placeholder="Lot Area"
                     />
@@ -169,6 +236,7 @@ const sellproperties = () => {
                       type="number"
                       min="0"
                       id="bedrooms"
+                      name="bedrooms"
                       className="form-control"
                       placeholder="Bedrooms"
                     />
@@ -181,6 +249,7 @@ const sellproperties = () => {
                       type="number"
                       min="0"
                       id="toilet-and-bath"
+                      name="toilet"
                       className="form-control"
                       placeholder="Toilet and Bath"
                     />
@@ -192,6 +261,7 @@ const sellproperties = () => {
                 <textarea
                   required
                   id={styles.areaText1}
+                  name="features"
                   className="form-control"
                   placeholder="Other Features"
                 ></textarea>
@@ -205,6 +275,7 @@ const sellproperties = () => {
                       type="number"
                       min="0"
                       id="property-age"
+                      name="propAge"
                       className="form-control"
                       placeholder="Property Age"
                     />
@@ -216,6 +287,7 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="inclusions"
+                      name="inclusions"
                       className="form-control"
                       placeholder="Inclusions"
                     />
@@ -249,6 +321,7 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="title-status"
+                      name="titleStatus"
                       className="form-control"
                       placeholder="Title Status"
                     />
@@ -265,6 +338,7 @@ const sellproperties = () => {
                   type="number"
                   min="0"
                   id="brokers-fee"
+                  name="brokersFee"
                   className="form-control"
                 />
               </div>
@@ -278,6 +352,7 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="ownerfName"
+                      name="ownerFName"
                       className="form-control"
                       placeholder="First Name"
                     />
@@ -289,6 +364,7 @@ const sellproperties = () => {
                       required
                       type="text"
                       id="ownerlName"
+                      name="ownerLName"
                       className="form-control"
                       placeholder="Last Name"
                     />
@@ -305,6 +381,7 @@ const sellproperties = () => {
                       placeholder="Phone Number ex. +639162477077"
                       pattern="[+]{1}[0-9]{2}[0-9]{10}"
                       id="phone-num"
+                      name="phoneNum"
                       className="form-control"
                     />
                   </div>
@@ -315,6 +392,7 @@ const sellproperties = () => {
                       required
                       type="email"
                       id="email"
+                      name="email"
                       className="form-control"
                       placeholder="Email"
                     />
@@ -329,6 +407,7 @@ const sellproperties = () => {
                 <textarea
                   required
                   id={styles.areaText2}
+                  name="addNotes"
                   className="form-control"
                 ></textarea>
               </div>
@@ -341,6 +420,7 @@ const sellproperties = () => {
                   required
                   className="form-control"
                   type="file"
+                  name="pictures"
                   id="pictures"
                   multiple
                 />
@@ -359,5 +439,4 @@ const sellproperties = () => {
     </div>
   );
 };
-
-export default sellproperties;
+export default Sellproperties;
