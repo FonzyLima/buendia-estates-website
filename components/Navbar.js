@@ -9,7 +9,7 @@ const Navbar = () => {
   const links = {
     home: "/",
     properties: "/properties",
-    sell: "/Sellproperties",
+    sell: "/sellproperties",
     booking: "/Booking",
     slug: "/properties/[slug]"
   }
@@ -26,7 +26,7 @@ const Navbar = () => {
     else if(pathname === "/properties/[slug]"){
       setActiveLink(links.slug)
     }
-    else if(pathname === "/Sellproperties"){
+    else if(pathname === "/sellproperties"){
       setActiveLink(links.sell)
     }
     else if(pathname ==="/Booking"){
@@ -55,7 +55,7 @@ const Navbar = () => {
                     <Link href="/properties"><a className={`nav-link ${activeLink === links.properties || activeLink === links.slug ? 'active': ''}`}>Properties</a></Link>
                   </li>
                   <li className="nav-item">
-                    <Link href="/Sellproperties"><a className={`nav-link ${activeLink === links.sell ? 'active': ''}`}>Sell a Property</a></Link>
+                    <Link href="/sellproperties"><a className={`nav-link ${activeLink === links.sell ? 'active': ''}`}>Sell a Property</a></Link>
                   </li>
                   <li className="nav-item">
                     <Link href="#contact-us"><a className="nav-link" href="#contact-us">Contact Us</a></Link>
