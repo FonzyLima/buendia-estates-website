@@ -67,7 +67,7 @@ export default function Home(props) {
             involuta aperiri, altera occulta quaedam et voluptatem accusantium
             doloremque.
           </div>
-          <Link href="/Sellproperties">
+          <Link href="/sellproperties">
           <a>
             <div className={styles["sell-learnmore"]}>
               <p>Learn more</p>
