@@ -120,7 +120,7 @@ nav .nav-link, nav .navbar-brand {
 
 .footer {
     padding-top: 75px;
-    padding-bottom: 75px;
+    /* padding-bottom: 75px; */
     width: 100%;
     height: fit-content;
 
@@ -162,6 +162,35 @@ nav .nav-link, nav .navbar-brand {
 .footer-section a:hover {
     text-decoration: none;
     color: #B9B9B9;
+}
+
+.footer-end {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.18);
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.footer-end-section {
+    display: flex;
+    justify-content: space-between;
+
+    width: 90%;
+    max-width: 1210px;
+    margin: auto;
+}
+
+.footer-end-text1{
+    color: #979797;
+    margin-left: 80px;
+}
+.footer-end-text2{
+    color: #979797;
+    margin-right: 80px;
 }
 
 .explore, .contact, .connect {

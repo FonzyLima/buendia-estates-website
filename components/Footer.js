@@ -24,7 +24,12 @@ export default function Footer() {
                     <p>0918 337 1307</p>
                 </div>
             </div>
-            
+            <div className="footer-end">
+                <div className="footer-end-section">
+                    <div className="footer-end-text1">© Lourdene Buendia 2022. All rights reserved.</div>
+                    <div className="footer-end-text2">Powered by Growth</div>
+                </div>
+            </div>
         </div>
     )
 }
