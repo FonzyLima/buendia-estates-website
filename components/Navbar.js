@@ -57,13 +57,11 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link href="/sellproperties"><a className={`nav-link ${activeLink === links.sell ? 'active': ''}`}>Sell a Property</a></Link>
                   </li>
-                  <li className="nav-item">
-                    <Link href="#contact-us"><a className="nav-link" href="#contact-us">Contact Us</a></Link>
+                  <li className="nav-item d-flex">
+                    <Link href="/Booking"><a className={`nav-link ${activeLink === links.booking ? 'active': ''}`}>Book A Viewing</a></Link>
                   </li>
                 </ul>
-                <li className="nav-item d-flex">
-                    <Link href="/Booking"><a className={`nav-link ${activeLink === links.booking ? 'active': ''}`}>Book A Viewing</a></Link>
-                </li>
+                
               </div>
             </div>
 
