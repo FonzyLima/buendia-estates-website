@@ -79,10 +79,12 @@ export default function PropertyDetails(props) {
                       undefined,
                       { maximumFractionDigits: 2 }
                     )}
-                    <span className={styles["avail-desc"]}> Available </span>{" "}
+                    <span className={styles["avail-desc"]}> {props.propers.fields.isAvailable ? "Available" : "Sold"}</span>{" "}
                     <span className={styles["gray-desc"]}>
                       Property Type: {props.propers.fields.propertyType}
                     </span>
+                    <h6>Date Added: {new Date(props.propers.sys.createdAt).toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'})}
+                                        , {new Date(props.propers.sys.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h6>
                   </p>
                 </div>
               </div>

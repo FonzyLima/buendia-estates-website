@@ -2,6 +2,7 @@ import styles from "../styles/booking.module.css";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Toast from "../components/Toast";
+import { Slider } from "@mui/material";
 
 const Booking = () => {
   //Calls the toast component to be displayed
@@ -31,11 +32,11 @@ const Booking = () => {
           // clear form inputs
           setLocation("");
           setPropertyType("");
-          setBudget("");
+          setSliderValue([2500000, 8000000]);
           setName("");
           setFb("");
           setEmail("");
-          setAge(0);
+          setAge(null);
           setGender("");
           setOccupation("");
           setSched("");
@@ -53,16 +54,18 @@ const Booking = () => {
   // Initial values of form inputs
   const [location, setLocation] = useState("");
   const [propertyType, setPropertyType] = useState("");
-  const [budget, setBudget] = useState("");
   const [name, setName] = useState("");
   const [fb, setFb] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState(null);
   const [gender, setGender] = useState("");
   const [occupation, setOccupation] = useState("");
   const [sched, setSched] = useState(new Date());
   const [notes, setNotes] = useState("");
-
+  const [sliderValue, setSliderValue] = useState([2500000, 8000000]);
+  const handleChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
   return (
     <div>
       <div className="hero">
@@ -120,17 +123,15 @@ const Booking = () => {
                   <label className="form-label" htmlFor="yourBudget">
                     Your Budget
                   </label>
-                  <input
-                    required
-                    type="number"
-                    value={budget}
-                    onChange={(e) => {
-                      setBudget(e.target.value);
-                    }}
-                    name="yourBudget"
-                    id="yourBudget"
-                    className="form-control"
-                  />
+                  <Slider
+                  valueLabelDisplay="on"
+                  value={sliderValue}
+                  onChange={handleChange}
+                  min={1000000}
+                  max={10000000}
+                  step={10000}
+                  name="yourBudget"
+                />
                 </div>
 
                 <div className={`mb-4 ${styles["form-outline"]}`}>
@@ -198,6 +199,8 @@ const Booking = () => {
                           setAge(e.target.value);
                         }}
                         name="age"
+                        min="0"
+                        step="1"
                         id="Age"
                         className="form-control"
                         placeholder="Age"
