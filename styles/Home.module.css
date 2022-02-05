@@ -97,7 +97,8 @@
     margin-top: 27px;
     height: 27px;
     background-color: white;
-    width: 150px;
+    /* width: 150px; */
+    width: 100%;
   
     text-align: left;
     border: none;
@@ -112,19 +113,23 @@
     margin-top: 27px;
     height: 27px;
     background-color: white;
-    width: 120px;
+    /* width: 120px; */
+    width: 100%;
   
     text-align: center;
     border: none;
   
     font-weight: 500;
     font-size: 17px;
+
+
   }
 
   .btn-search{
     height: 79.6px;
     background-color: #254F72;
-    width: 172.6px;
+    /* width: 172.6px; */
+    width: 100%;
     color: white;
   
     text-align: center;
@@ -140,7 +145,8 @@
   .btn-clear {
     height: 79.6px;
     background-color: #254F72;
-    width: 172.6px;
+    /* width: 172.6px; */
+    width: 100%;
     color: white;
   
     text-align: center;
@@ -155,13 +161,16 @@
     margin-top: 27px;
     height: 27px;
     background-color: white;
-    width: 100px;
+    width: 800px;
+    /* width: 100%; */
 
     text-align: left;
     border: none;
   
     font-weight: 500;
     font-size: 17px;
+
+  
   }
 
   .price-range-to {
@@ -175,6 +184,7 @@
   
     font-weight: 500;
     font-size: 17px;
+
   }
   
   .featured {
@@ -302,9 +312,9 @@
     padding-top: 50px;
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
+    
     justify-content: space-between;
-    /* max-width: 1040px; */
+   
     width: 90%;
     max-width: 1210px;
   
@@ -379,12 +389,57 @@
         left: 50px;
         font-size:15px;
     }
+
+    .search {
+        height: fit-content;
+    }
+
+    .search form{
+        flex-direction: column;
+    }
+
+    .search-divider1, .search-divider2, .search-divider3, .search-divider4 {
+        height: 1.13px;
+        width: 100%;
+    }
+    
+    .search select, .price-range, .price-range-to {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 90%;
+        
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .pr-minval, .pr-maxval {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 90%;
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .btn-clear {
+      text-align: center;
+      width: 100%;
+
+      height: 40px;
+    }
+
+    .btn-search {
+      text-align: center;
+      width: 100%;
+      height: 40px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
   }
   
   @media screen and (max-width: 519px)
   {    
     .hero-text h1 {
-        padding-top: 50px;
         left: 25px;
         font-size:55px;
     }
@@ -393,27 +448,5 @@
         left: 25px;
     }
   
-    .search {
-        height: fit-content;
-    }
-  
-    .search form{
-        flex-direction: column;
-    }
-  
-    .search div {
-        height: 1.13px;
-        width: 100%;
-    }
-    
-    .search select, .search input {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        width: 90%;
-    }
-  
-    .featured-title {
-        padding-top: 140px;
-    }
     
   }
