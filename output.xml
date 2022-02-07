@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.8.8 on win32)" generated="20220207 18:54:42.575" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.8.8 on win32)" generated="20220207 19:10:11.939" rpa="false" schemaversion="2">
 <suite id="s1" name="Testing" source="D:\Documents\AY2122\Term 1\STSWENG\buendia-estates-website\testing">
 <suite id="s1-s1" name="US 01" source="D:\Documents\AY2122\Term 1\STSWENG\buendia-estates-website\testing\US_01">
 <suite id="s1-s1-s1" name="Us1" source="D:\Documents\AY2122\Term 1\STSWENG\buendia-estates-website\testing\US_01\us1.robot">
 <kw name="Go Home" type="SETUP">
-<kw name="Go To">
+<kw name="Open Browser" library="SeleniumLibrary">
 <arg>https://buendia-estates-website.vercel.app/</arg>
-<msg timestamp="20220207 18:54:42.627" level="FAIL">No keyword with name 'Go To' found.</msg>
-<status status="FAIL" starttime="20220207 18:54:42.627" endtime="20220207 18:54:42.627"/>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220207 19:10:12.271" level="INFO">Opening browser 'chrome' to base url 'https://buendia-estates-website.vercel.app/'.</msg>
+<status status="PASS" starttime="20220207 19:10:12.271" endtime="20220207 19:10:45.698"/>
 </kw>
-<status status="FAIL" starttime="20220207 18:54:42.625" endtime="20220207 18:54:42.629"/>
+<status status="PASS" starttime="20220207 19:10:12.270" endtime="20220207 19:10:45.699"/>
 </kw>
 <test id="s1-s1-s1-t1" name="Valid">
-<status status="FAIL" starttime="20220207 18:54:42.629" endtime="20220207 18:54:42.630">Parent suite setup failed:
-No keyword with name 'Go To' found.</status>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>class:property-card</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220207 19:10:45.702" level="INFO">Clicking element 'class:property-card'.</msg>
+<status status="PASS" starttime="20220207 19:10:45.700" endtime="20220207 19:10:45.941"/>
+</kw>
+<status status="PASS" starttime="20220207 19:10:45.699" endtime="20220207 19:10:45.948"/>
 </test>
-<kw name="Close Browser" type="TEARDOWN">
-<msg timestamp="20220207 18:54:42.633" level="FAIL">No keyword with name 'Close Browser' found.</msg>
-<status status="FAIL" starttime="20220207 18:54:42.633" endtime="20220207 18:54:42.633">No keyword with name 'Close Browser' found.</status>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220207 19:10:45.981" endtime="20220207 19:10:48.270"/>
 </kw>
 <doc>Test suite for User Story #1
 
@@ -26,26 +33,22 @@ to professor's page as an admin and
 adding a review.
 
 By James Andrew F. Perez</doc>
-<status status="FAIL" starttime="20220207 18:54:42.620" endtime="20220207 18:54:42.633">Suite setup failed:
-No keyword with name 'Go To' found.
-
-Also suite teardown failed:
-No keyword with name 'Close Browser' found.</status>
+<status status="PASS" starttime="20220207 19:10:11.983" endtime="20220207 19:10:48.270"/>
 </suite>
-<status status="FAIL" starttime="20220207 18:54:42.616" endtime="20220207 18:54:42.636"/>
+<status status="PASS" starttime="20220207 19:10:11.980" endtime="20220207 19:10:48.272"/>
 </suite>
-<status status="FAIL" starttime="20220207 18:54:42.576" endtime="20220207 18:54:42.639"/>
+<status status="PASS" starttime="20220207 19:10:11.941" endtime="20220207 19:10:48.274"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Testing">Testing</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="US 01">Testing.US 01</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Us1">Testing.US 01.Us1</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testing">Testing</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="US 01">Testing.US 01</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Us1">Testing.US 01.Us1</stat>
 </suite>
 </statistics>
 <errors>

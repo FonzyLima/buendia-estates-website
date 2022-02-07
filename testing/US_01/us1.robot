@@ -8,6 +8,7 @@ Documentation     Test suite for User Story #1
 ...               By James Andrew F. Perez
 Suite Setup       Go Home
 Suite Teardown    Close Browser
+Library           SeleniumLibrary
 
 *** Test Cases ***
 Valid
@@ -15,4 +16,4 @@ Valid
 
 *** KEYWORDS ***
 Go Home
-    Go To   https://buendia-estates-website.vercel.app/
+    Open Browser   https://buendia-estates-website.vercel.app/  chrome
