@@ -301,6 +301,23 @@ const Sellproperties = () => {
                     />
                   </div>
                 </div>
+                <div className={`row ${styles["mb-4"]}`}>
+                
+                  <label className={styles.checkLabel}>Parking Space?
+                    <input type="checkbox"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                  <label className={styles.checkLabel}>Gym?
+                    <input type="checkbox"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                  <label className={styles.checkLabel}>Pool?
+                    <input type="checkbox"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                
+                
+                </div>
               </div>
 
               <div className={`${styles["form-outline"]} ${styles["mb-4"]}`}>
