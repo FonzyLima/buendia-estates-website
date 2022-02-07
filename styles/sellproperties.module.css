@@ -99,12 +99,13 @@
 }
 
 .checkLabel{
-    display: block;
+    display: inline;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 25px;
+  margin-left: 14px;
+  margin-bottom: 6px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
 }
 .checkLabel input {
     position: absolute;
@@ -117,16 +118,35 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: #eee;
   }
-  .container:hover input .checkmark {
+  .checkLabel:hover input ~ .checkmark {
     background-color: #ccc;
   }
-.checkbox{
-
-}
+  .checkLabel input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .checkLabel input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkLabel .checkmark:after {
+    left: 7.5px;
+    top: 4px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
 .mt-4 {
     margin-top: 4px;
