@@ -289,6 +289,7 @@ const Sellproperties = () => {
                     </select>
                   </div>
                 </div>
+                
                 <div className="col">
                   <div className={styles["form-outline"]}>
                     <input
@@ -301,8 +302,25 @@ const Sellproperties = () => {
                     />
                   </div>
                 </div>
+                
               </div>
-
+              <label className={styles.ammenLabel}>Ammenities</label>
+                <div className={`${styles.ammen} ${styles["mb-4"]}`}>
+                  <label className={styles.checkLabel}>Parking Space?
+                    <input name="park"type="checkbox" value="Parking Space Available"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                  <label className={styles.checkLabel}>Gym?
+                    <input name="gym"type="checkbox"value="Gym Available"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                  <label name="pool"className={styles.checkLabel}>Pool?
+                    <input type="checkbox"value="Pool Available"/>
+                    <span className={styles.checkmark}></span>
+                  </label>
+                
+                
+                </div>
               <div className={`${styles["form-outline"]} ${styles["mb-4"]}`}>
                 <label className="form-label mt-4" htmlFor="brokers-fee">
                   Brokers Fee

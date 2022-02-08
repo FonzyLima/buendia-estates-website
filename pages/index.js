@@ -36,8 +36,7 @@ export default function Home(props) {
             </h1>
             <p>
               In oculis quidem se esse admonere interesse enim maxime placeat,
-              facere possimus, omnis. Et quidem faciunt, ut labore et accurate
-              disserendum et harum quidem exercitus quid.
+              facere possimus, omnis.
             </p>
           </div>
         </div>
@@ -83,11 +82,11 @@ export default function Home(props) {
       <div className={styles["client-test"]}>
         <div className={styles["client-title"]}>What our clients think</div>
         <div className={styles["client-box"]}>
-          <div className="row row-cols-1 row-cols-md-3 g-4">
+          {/* <div className="row row-cols-1 row-cols-md-3 g-4"> */}
             {props.testimonies.map((tests) => (
               <Testimonies key={tests.sys.id} tests={tests} />
             ))}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>
