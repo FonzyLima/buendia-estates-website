@@ -233,9 +233,21 @@ nav .nav-link, nav .navbar-brand {
 }
 
 
+@media screen and (max-width: 1200px) {
+
+    .footer-section div {
+        margin-bottom: 50px;
+    }
+    
+}
+
 /* Phone Responsiveness */
 @media screen and (max-width: 519px)
 {    
+    .footer-section {
+        flex-direction: column;
+    }
+
     .contact-links {
         margin-top:8px;
     }
