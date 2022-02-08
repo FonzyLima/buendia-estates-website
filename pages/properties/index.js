@@ -45,7 +45,7 @@ const Properties = (props) => {
         else if(minval != "")
           setProps(props.properties.filter(a => a.fields.featuredPrice >= minval).map(p => p));
         else if(maxval != "")
-          setProps(props.properties.filter(a => a.fields.featuredPrice >= maxval).map(p => p));
+          setProps(props.properties.filter(a => a.fields.featuredPrice <= maxval).map(p => p));
         else
           setProps(props.properties);
       }
