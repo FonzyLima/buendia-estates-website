@@ -97,12 +97,15 @@
 .btn-primary:hover{
     background-color:#375f81;
 }
-
+.ammenLabel{
+    margin-top: 18px;
+}
 .checkLabel{
     display: inline;
   position: relative;
   padding-left: 25px;
-  margin-left: 14px;
+  margin-right: 14px;
+  margin-top: 8px;
   margin-bottom: 6px;
   cursor: pointer;
   font-size: 16px;
@@ -147,7 +150,10 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
+.ammen{
+    display: flex;
+    justify-content: flex-start;
+}
 .mt-4 {
     margin-top: 4px;
 }

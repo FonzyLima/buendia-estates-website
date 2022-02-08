@@ -304,9 +304,8 @@ const Sellproperties = () => {
                 </div>
                 
               </div>
-              <label>Ammenities</label>
-                <div className={`row ${styles["mb-4"]}`}>
-                
+              <label className={styles.ammenLabel}>Ammenities</label>
+                <div className={`${styles.ammen} ${styles["mb-4"]}`}>
                   <label className={styles.checkLabel}>Parking Space?
                     <input name="park"type="checkbox" value="Parking Space Available"/>
                     <span className={styles.checkmark}></span>
